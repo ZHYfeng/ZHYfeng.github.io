@@ -26,7 +26,7 @@ author:
   avatar           : "profile.jpg"
   name             : "Yu Hao / 郝宇"
   pronouns         : # example: "she/her"  
-  bio              : "OS Security Researcher @ Huawei, PhD @ University of California, Riverside. My research focuses on OS security and vulnerability discovery. I am also interested in software security, binary analysis, and machine learning for security."
+  bio              : "OS Security Researcher @ Huawei"
   location         : "China"
   employer         : "Huawei"
   uri              : # URL
