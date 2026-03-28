@@ -1,6 +1,6 @@
 ---
 layout: archive
-permaPaper: /publications/
+permalink: /publications/
 title: "Publications"
 redirect_from: 
   - /publications.html
