@@ -1,10 +1,10 @@
 ---
 layout: archive
 permalink: /publications/
+author_profile: true
 title: "Publications"
 redirect_from: 
   - /publications.html
-author_profile: true
 ---
 
 {% if site.author.googlescholar %}
