@@ -16,5 +16,6 @@ I am looking forward to cooperation with researchers and industry partners in th
 ## News
 
 - [2025] Received Distinguished Paper Award at CCS 2025 for "SyzSpec: Specification Generation for Linux Kernel Fuzzing via Under-Constrained Symbolic Execution".
+- [2025] Paper "SyzSpec: Specification Generation for Linux Kernel Fuzzing via Under-Constrained Symbolic Execution" was accepted by CCS 2025
 - [2024] Received Laxmi Bhuyan Fellowship Award from University of California, Riverside.
 
