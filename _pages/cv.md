@@ -51,7 +51,7 @@ redirect_from:
 - And more...
 
 ## Academic Service
-- **Program Committee**: CCS 2026, FORGE@ICSE 2025/2024, MSR 2024 (Junior PC)
-- **Reviewer**: TIFS 2024/2023, TOSEM 2025, EAI SecureComm 2023
-- **Sub-Reviewer**: S&P 2025/2024/2021/2020, CCS 2024, USENIX Security 2025/2021, NDSS 2025/2021/2020
+- **Program Committee**: CCS 2026. RAID 2026. FORGE@ICSE 2025, 2024. MSR 2024(Junior PC).
+- **Reviewer**: TIFS 2024, 2023. TOSEM 2026, 2025, Computing Surveys 2026, EAI SecureComm 2023.
+- **Sub-Reviewer**: S&P 2025, 2024, 2021, 2020. CCS 2024. USENIX Security 2025, 2021. NDSS 2025, 2021, 2020.
 - **Artifact Evaluation Committee**: EuroSys 2023, ISSTA 2024, ECOOP 2024
