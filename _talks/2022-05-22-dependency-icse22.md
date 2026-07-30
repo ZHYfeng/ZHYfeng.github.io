@@ -6,10 +6,14 @@ permalink: /talks/dependency-icse22
 venue: "IEEE/ACM International Conference on Software Engineering (ICSE 2022)"
 date: 2022-05-22
 location: "Pittsburgh, PA, USA"
+excerpt: "Systematically studies the dependency challenge in kernel fuzzing — code locked behind kernel states that fuzzers struggle to reach."
 ---
 
-**IEEE/ACM International Conference on Software Engineering (ICSE 2022)**
+Systematically studies the dependency challenge in kernel fuzzing — code locked behind kernel states that fuzzers struggle to reach.
 
-Demystifying the Dependency Challenge in Kernel Fuzzing
+**Title:** Demystifying the Dependency Challenge in Kernel Fuzzing
+**Venue:** IEEE/ACM International Conference on Software Engineering (ICSE 2022)
+**Location:** Pittsburgh, PA, USA
+
 
 [View Paper](http://zhyfeng.github.io/files/icse22_dependency_measurement.pdf)

@@ -6,12 +6,14 @@ permalink: /talks/{{ talk.slug }}
 venue: "{{ talk.venue }}"
 date: {{ talk.date }}
 location: "{{ talk.location }}"
+excerpt: "{{ talk.excerpt }}"
 ---
 
-**{{ talk.venue }}**
-{% if talk.award %}
-**🏆 {{ talk.award }}**
-{% endif %}
-{{ talk.title }}
+{{ talk.excerpt }}
+
+**Title:** {{ talk.title }}
+**Venue:** {{ talk.venue }}
+**Location:** {{ talk.location }}
+{% if talk.award %}**🏆 {{ talk.award }}**{% endif %}
 
 [View Paper]({{ talk.paper }}){% if talk.slides %} | [Slides]({{ talk.slides }}){% endif %}{% if talk.video %} | [Video]({{ talk.video }}){% endif %}

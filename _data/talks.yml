@@ -8,6 +8,7 @@ talks:
     badge: CCS 25
     award: "Distinguished Paper Award"
     paper: "http://zhyfeng.github.io/files/ccs25_syzspec.pdf"
+    excerpt: "Automatically infers syscall specifications for Linux kernel drivers using under-constrained symbolic execution, winning Distinguished Paper at CCS 2025."
 
   - title: "E&V: Prompting Large Language Models to Perform Static Analysis by Pseudo-code Execution and Verification"
     venue: "AGI Leap Summit 2024"
@@ -17,6 +18,7 @@ talks:
     slug: ev-agi-leap-summit24
     badge: AGI Leap Summit
     paper: "https://arxiv.org/abs/2312.08477"
+    excerpt: "Presents E&V, a novel approach that prompts LLMs to perform static analysis via pseudo-code execution and verification."
 
   - title: "E&V: Prompting Large Language Models to Perform Static Analysis by Pseudo-code Execution and Verification"
     venue: "Symposium on the Science of Security (SoS 2024)"
@@ -26,6 +28,7 @@ talks:
     slug: ev-sos24
     badge: SoS 24
     paper: "https://arxiv.org/abs/2312.08477"
+    excerpt: "Presents E&V, a novel approach that prompts LLMs to perform static analysis via pseudo-code execution and verification."
 
   - title: "SyzDescribe: Principled, Automated, Static Generation of Syscall Descriptions for Kernel Drivers"
     venue: "IEEE Symposium on Security and Privacy (S&P 2023)"
@@ -35,6 +38,7 @@ talks:
     slug: syzdescribe-sp23
     badge: S&P 23
     paper: "http://zhyfeng.github.io/files/oakland23_syzdescribe.pdf"
+    excerpt: "Pioneers principled static analysis to automatically generate syscall descriptions for Linux kernel drivers, enabling targeted driver fuzzing."
 
   - title: "SyzDescribe: Principled, Automated, Static Generation of Syscall Descriptions for Kernel Drivers"
     venue: "Linux Security Summit North America (LSS-NA 2023)"
@@ -44,6 +48,7 @@ talks:
     slug: syzdescribe-lssna23
     badge: LSS-NA 23
     paper: "http://zhyfeng.github.io/files/oakland23_syzdescribe.pdf"
+    excerpt: "Pioneers principled static analysis to automatically generate syscall descriptions for Linux kernel drivers, enabling targeted driver fuzzing."
 
   - title: "SyzDescribe: Principled, Automated, Static Generation of Syscall Descriptions for Kernel Drivers"
     venue: "Qualcomm Product Security Summit 2023"
@@ -53,6 +58,7 @@ talks:
     slug: syzdescribe-qualcomm23
     badge: Qualcomm Sec
     paper: "http://zhyfeng.github.io/files/oakland23_syzdescribe.pdf"
+    excerpt: "Pioneers principled static analysis to automatically generate syscall descriptions for Linux kernel drivers, enabling targeted driver fuzzing."
 
   - title: "Demystifying the Dependency Challenge in Kernel Fuzzing"
     venue: "IEEE/ACM International Conference on Software Engineering (ICSE 2022)"
@@ -62,3 +68,4 @@ talks:
     slug: dependency-icse22
     badge: ICSE 22
     paper: "http://zhyfeng.github.io/files/icse22_dependency_measurement.pdf"
+    excerpt: "Systematically studies the dependency challenge in kernel fuzzing — code locked behind kernel states that fuzzers struggle to reach."
