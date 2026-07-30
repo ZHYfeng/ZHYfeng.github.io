@@ -6,14 +6,10 @@ redirect_from:
   - /resume
 ---
 
-<link rel="stylesheet" href="/assets/css/cv.css">
-
 <div class="cv-download-links">
   <a href="/files/cv.pdf" class="btn btn--primary">Download CV (EN)</a>
   <a href="/files/cv-cn.pdf" class="btn btn--primary">Download CV (CN)</a>
 </div>
-
-<div class="cv-page">
 
 ## Education
 
@@ -116,6 +112,3 @@ redirect_from:
 
 - **AEC**: EuroSys 2023. ISSTA 2024. ECOOP 2024
 
-
-
-</div>
