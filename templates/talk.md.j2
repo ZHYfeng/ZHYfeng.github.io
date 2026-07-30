@@ -1,0 +1,17 @@
+---
+title: "{{ talk.title }}"
+collection: talks
+type: "{{ talk.type }}"
+permalink: /talks/{{ talk.slug }}
+venue: "{{ talk.venue }}"
+date: {{ talk.date }}
+location: "{{ talk.location }}"
+---
+
+**{{ talk.venue }}**
+{% if talk.award %}
+**🏆 {{ talk.award }}**
+{% endif %}
+{{ talk.title }}
+
+[View Paper]({{ talk.paper }}){% if talk.slides %} | [Slides]({{ talk.slides }}){% endif %}{% if talk.video %} | [Video]({{ talk.video }}){% endif %}

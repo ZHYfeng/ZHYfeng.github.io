@@ -1,0 +1,31 @@
+---
+title: "{{ project.title }}"
+excerpt: "{{ project.excerpt }}"
+collection: portfolio
+permalink: /portfolio/{{ project.slug }}
+date: {{ project.year }}-07-01
+---
+
+**{{ project.tagline }}**
+
+## Overview
+
+{{ project.description | trim }}
+
+## Key Features
+
+{% for feature in project.features %}
+- **{{ feature }}**
+{% endfor %}
+
+## Technologies
+
+{% for tech in project.tech %}
+- {{ tech }}
+{% endfor %}
+
+{% if project.award %}
+**🏆 {{ project.award }}**
+{% endif %}
+
+[📄 Paper]({{ project.paper }}) | [🐙 GitHub]({{ project.github }})

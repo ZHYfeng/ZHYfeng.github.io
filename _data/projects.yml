@@ -1,0 +1,71 @@
+projects:
+  - title: "SyzSpec"
+    tagline: "Specification Generation for Linux Kernel Fuzzing via Under-Constrained Symbolic Execution"
+    excerpt: "Automatically infers syscall specifications for Linux kernel drivers using under-constrained symbolic execution."
+    description: |
+      SyzSpec addresses the critical bottleneck of manually writing syscall descriptions for Linux kernel fuzzing.
+      It uses under-constrained symbolic execution to automatically generate precise specification templates,
+      significantly reducing the human effort required to fuzz kernel drivers. SyzSpec has discovered over
+      thousands of specification entries covering hundreds of drivers, leading to the discovery of numerous
+      unique kernel bugs.
+    features:
+      - "Under-constrained symbolic execution for specification inference"
+      - "Automatic identification of device opening sequences and ioctl dependencies"
+      - "Cross-driver dependency tracking for real-world device interactions"
+      - "Seamless integration with Syzkaller for downstream fuzzing"
+    tech:
+      - "Symbolic Execution"
+      - "LLVM / Bitcode Analysis"
+      - "Syzkaller Integration"
+    github: "https://github.com/seclab-ucr/SyzSpec"
+    paper: "http://zhyfeng.github.io/files/ccs25_syzspec.pdf"
+    year: 2025
+    slug: syzspec
+    award: "CCS 2025 Distinguished Paper Award"
+
+  - title: "SyzDescribe"
+    tagline: "Principled, Automated, Static Generation of Syscall Descriptions for Kernel Drivers"
+    excerpt: "Statically generates complete syscall descriptions for Linux kernel drivers to enable driver-specific fuzzing."
+    description: |
+      SyzDescribe pioneers a principled static analysis approach to automatically generate system call descriptions
+      for Linux kernel drivers. By analyzing kernel driver source code and leveraging device model semantics,
+      SyzDescribe produces high-quality syzkaller descriptions that enable targeted driver fuzzing. It has generated
+      descriptions for over 900 drivers, uncovering 40+ unique kernel bugs.
+    features:
+      - "Static analysis of kernel driver source code"
+      - "Automated ioctl command extraction and argument type inference"
+      - "Device file path and permission analysis"
+      - "Semantic type inference for complex driver arguments"
+    tech:
+      - "Static Program Analysis"
+      - "LLVM"
+      - "Syzkaller Integration"
+      - "Python / C++"
+    github: "https://github.com/seclab-ucr/SyzDescribe"
+    paper: "http://zhyfeng.github.io/files/oakland23_syzdescribe.pdf"
+    year: 2023
+    slug: syzdescribe
+
+  - title: "Dependency"
+    tagline: "Demystifying the Dependency Challenge in Kernel Fuzzing"
+    excerpt: "A systematic study of dependency challenges in kernel fuzzing, including tools for measurement and mitigation."
+    description: |
+      This project systematically studies the dependency challenge in kernel fuzzing — where kernel code is
+      locked behind specific kernel states that fuzzers struggle to reach. It provides measurement tools and
+      analysis framework to quantify how dependencies hinder coverage, along with techniques to improve
+      fuzzer effectiveness through better state exploration.
+    features:
+      - "Comprehensive measurement study of kernel dependency coverage gaps"
+      - "Static analysis for unresolved dependency identification"
+      - "State-aware fuzzing techniques for improved coverage"
+      - "Evaluation framework for assessing fuzzer effectiveness under dependencies"
+    tech:
+      - "Go / C++ / C / Python"
+      - "LLVM"
+      - "Syzkaller"
+      - "Protobuf / gRPC"
+    github: "https://github.com/seclab-ucr/Dependency"
+    paper: "http://zhyfeng.github.io/files/icse22_dependency_measurement.pdf"
+    year: 2022
+    slug: dependency
+    award: "Google Research Paper Rewards"

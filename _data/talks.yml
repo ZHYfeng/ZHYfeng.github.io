@@ -1,0 +1,64 @@
+talks:
+  - title: "SyzSpec: Specification Generation for Linux Kernel Fuzzing via Under-Constrained Symbolic Execution"
+    venue: "ACM Conference on Computer and Communications Security (CCS 2025)"
+    location: "Kobe, Japan"
+    date: 2025-10-13
+    type: "Conference Talk"
+    slug: syzspec-ccs25
+    badge: CCS 25
+    award: "Distinguished Paper Award"
+    paper: "http://zhyfeng.github.io/files/ccs25_syzspec.pdf"
+
+  - title: "E&V: Prompting Large Language Models to Perform Static Analysis by Pseudo-code Execution and Verification"
+    venue: "AGI Leap Summit 2024"
+    location: "Online"
+    date: 2024-11-01
+    type: "Invited Talk"
+    slug: ev-agi-leap-summit24
+    badge: AGI Leap Summit
+    paper: "https://arxiv.org/abs/2312.08477"
+
+  - title: "E&V: Prompting Large Language Models to Perform Static Analysis by Pseudo-code Execution and Verification"
+    venue: "Symposium on the Science of Security (SoS 2024)"
+    location: "Online"
+    date: 2024-10-01
+    type: "Invited Talk"
+    slug: ev-sos24
+    badge: SoS 24
+    paper: "https://arxiv.org/abs/2312.08477"
+
+  - title: "SyzDescribe: Principled, Automated, Static Generation of Syscall Descriptions for Kernel Drivers"
+    venue: "IEEE Symposium on Security and Privacy (S&P 2023)"
+    location: "San Francisco, CA, USA"
+    date: 2023-05-22
+    type: "Conference Talk"
+    slug: syzdescribe-sp23
+    badge: S&P 23
+    paper: "http://zhyfeng.github.io/files/oakland23_syzdescribe.pdf"
+
+  - title: "SyzDescribe: Principled, Automated, Static Generation of Syscall Descriptions for Kernel Drivers"
+    venue: "Linux Security Summit North America (LSS-NA 2023)"
+    location: "Vancouver, Canada"
+    date: 2023-05-10
+    type: "Invited Talk"
+    slug: syzdescribe-lssna23
+    badge: LSS-NA 23
+    paper: "http://zhyfeng.github.io/files/oakland23_syzdescribe.pdf"
+
+  - title: "SyzDescribe: Principled, Automated, Static Generation of Syscall Descriptions for Kernel Drivers"
+    venue: "Qualcomm Product Security Summit 2023"
+    location: "San Diego, CA, USA"
+    date: 2023-04-01
+    type: "Invited Talk"
+    slug: syzdescribe-qualcomm23
+    badge: Qualcomm Sec
+    paper: "http://zhyfeng.github.io/files/oakland23_syzdescribe.pdf"
+
+  - title: "Demystifying the Dependency Challenge in Kernel Fuzzing"
+    venue: "IEEE/ACM International Conference on Software Engineering (ICSE 2022)"
+    location: "Pittsburgh, PA, USA"
+    date: 2022-05-22
+    type: "Conference Talk"
+    slug: dependency-icse22
+    badge: ICSE 22
+    paper: "http://zhyfeng.github.io/files/icse22_dependency_measurement.pdf"

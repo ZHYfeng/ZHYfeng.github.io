@@ -27,6 +27,10 @@ CV_PAGE         = _pages/cv.md
 CV_PAGE_CN      = _pages/cv-cn.md
 PUB_PAGE        = _pages/publications.md
 PUB_DIR         = _publications
+TALK_DATA       = _data/talks.yml
+TALK_DIR        = _talks
+PROJ_DATA       = _data/projects.yml
+PROJ_DIR        = _portfolio
 
 # ── Templates ──
 PUB_MD_TMPL      = $(TEMPLATE_DIR)/publications.md.j2
@@ -39,6 +43,8 @@ GEN_CV_TEX       = scripts/generate_cv_tex.py
 GEN_CV_MD        = scripts/generate_cv_md.py
 GEN_PUB_PAGES    = scripts/generate_pub_pages.py
 GEN_PUB_LIST     = scripts/generate_pub_list.py
+GEN_TALKS        = scripts/generate_talks.py
+GEN_PROJECTS     = scripts/generate_projects.py
 EXTRACT_SECTIONS = scripts/extract_cv_sections.py
 EXTRACT_PUBS     = scripts/extract_publications.py
 
@@ -54,7 +60,7 @@ all: web cv-pdf
 web: sync-web-pages
 	@echo "✅ Web content generated from YAML"
 
-sync-web-pages: $(CV_PAGE) $(CV_PAGE_CN) $(PUB_PAGE) sync-pub-pages
+sync-web-pages: $(CV_PAGE) $(CV_PAGE_CN) $(PUB_PAGE) sync-pub-pages sync-talks sync-projects
 
 $(CV_PAGE): $(CV_YML) $(GEN_CV_MD)
 	python3 $(GEN_CV_MD) --data $(CV_YML) --lang en --output $@
@@ -71,6 +77,22 @@ sync-pub-pages: $(PUBS_YML) $(GEN_PUB_PAGES)
 	python3 $(GEN_PUB_PAGES) --data $(PUBS_YML) --output-dir $(PUB_DIR)
 
 $(PUB_DIR): sync-pub-pages
+
+# ── Talks ──
+.PHONY: sync-talks
+sync-talks: $(TALK_DATA) $(GEN_TALKS)
+	rm -f $(TALK_DIR)/*.md
+	python3 $(GEN_TALKS) --data $(TALK_DATA) --template templates/talk.md.j2 --output-dir $(TALK_DIR)
+
+$(TALK_DIR): sync-talks
+
+# ── Projects / Portfolio ──
+.PHONY: sync-projects
+sync-projects: $(PROJ_DATA) $(GEN_PROJECTS)
+	rm -f $(PROJ_DIR)/*.md
+	python3 $(GEN_PROJECTS) --data $(PROJ_DATA) --template templates/project.md.j2 --output-dir $(PROJ_DIR)
+
+$(PROJ_DIR): sync-projects
 
 # ── LaTeX CV → PDF ──
 cv: $(CV_TEX_OUT) $(CV_TEX_CN_OUT)
@@ -121,7 +143,7 @@ deploy:
 
 # ── Clean ──
 clean:
-	rm -rf $(PUB_DIR)/*.md $(CV_PAGE) $(CV_PAGE_CN) $(PUB_PAGE)
+	rm -rf $(PUB_DIR)/*.md $(TALK_DIR)/*.md $(PROJ_DIR)/*.md $(CV_PAGE) $(CV_PAGE_CN) $(PUB_PAGE)
 	rm -f $(CV_DIR)/Yu_Hao-CV.tex $(CV_DIR)/Yu_Hao-CV-CN.tex _data/cv.json
 
 # ── Help ──
