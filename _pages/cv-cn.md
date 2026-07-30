@@ -9,7 +9,7 @@ author_profile: true
   <a href="/files/cv-cn.pdf" class="btn btn--primary">下载中文简历 (CN)</a>
 </div>
 
-<div class="cv-card">
+<div class="cv-card" markdown="1">
 
 ## 教育经历
 

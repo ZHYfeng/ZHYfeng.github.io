@@ -11,7 +11,7 @@ redirect_from:
   <a href="/files/cv-cn.pdf" class="btn btn--primary">Download CV (CN)</a>
 </div>
 
-<div class="cv-card">
+<div class="cv-card" markdown="1">
 
 ## Education
 
