@@ -9,6 +9,8 @@ author_profile: true
   <a href="/files/cv-cn.pdf" class="btn btn--primary">下载中文简历 (CN)</a>
 </div>
 
+<div class="cv-card">
+
 ## 教育经历
 
 
@@ -91,3 +93,5 @@ author_profile: true
 
 - **AEC**：EuroSys 2023. ISSTA 2024. ECOOP 2024
 
+
+</div>

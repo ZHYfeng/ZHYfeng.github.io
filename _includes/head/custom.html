@@ -11,7 +11,7 @@
 <link rel="icon" href="/images/favicon.ico" />
 <meta name="theme-color" content="#ffffff" />
 
-<!-- Subtle typography & spacing refinements -->
+<!-- Subtle card styling for CV & Publications -->
 <style>
   .page__content {
     line-height: 1.7;
@@ -22,12 +22,41 @@
     padding-bottom: 0.3em;
   }
 
-  .page__content li {
-    margin-bottom: 0.6em;
+  /* CV cards — left accent, clean spacing */
+  .cv-card ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
   }
 
-  .page__content li:last-child {
+  .cv-card ul>li {
+    padding: 0.8em 1em 0.8em 1.25em;
+    margin-bottom: 0.6em;
+    border-left: 3px solid var(--global-theme-color, #52adc8);
+    border-radius: 4px;
+  }
+
+  .cv-card ul>li ul {
+    margin-top: 0.3em;
+  }
+
+  .cv-card ul>li ul>li {
+    padding: 0.15em 0;
     margin-bottom: 0;
+    border: none;
+    font-size: 0.95em;
+  }
+
+  /* Publication cards */
+  .pub-card {
+    padding: 0.8em 1em 0.6em 1.25em;
+    margin-bottom: 0.6em;
+    border-left: 3px solid var(--global-theme-color, #52adc8);
+    border-radius: 4px;
+  }
+
+  .pub-card p {
+    margin: 0.15em 0;
   }
 </style>
 

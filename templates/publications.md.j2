@@ -13,10 +13,12 @@ redirect_from:
 
 {% include base_path %}{% endraw %}
 {% for pub in publications %}
+<div class="pub-card" markdown="1">
 [**{{ pub.title | replace('\\&', '&') | replace('\\textbf{', '') | replace('\\textit{', '') | replace('}', '') }}**](/publication/{{ pub.slug }}/)  {% if pub.authors %}
 {{ pub.authors | join(', ') | bold_self }}{% endif %}{% if pub.venue %}
 *{{ pub.venue | replace('\\&', '&') | replace('\\textbf{', '') | replace('\\textit{', '') | replace('}', '') }}*{% endif %}
 {% if pub.pdf %}[PDF]({{ pub.pdf }}){% endif %}{% if pub.pub %}[Paper]({{ pub.pub }}){% endif %}{% if pub.links %}{% for url in pub.links %} [Paper]({{ url }}){% endfor %}{% endif %}{% if pub.github %}{% for name, url in pub.github.items() %} [{{ name }}]({{ url | replace('\\_', '_') }}){% endfor %}{% endif %}{% if pub.code %}[Code]({{ pub.code | replace('\\_', '_') }}){% endif %}{% if pub.website %}[Website]({{ pub.website }}){% endif %}{% if pub.slides %}[Slides]({{ pub.slides }}){% endif %}{% if pub.youtube %}[Video]({{ pub.youtube }}){% endif %}{% if pub.awards %}
 {% for award in pub.awards %}**{{ award }}**{% endfor %}{% endif %}
 
+</div>
 {% endfor %}

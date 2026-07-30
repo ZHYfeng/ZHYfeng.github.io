@@ -11,6 +11,8 @@ redirect_from:
   <a href="/files/cv-cn.pdf" class="btn btn--primary">Download CV (CN)</a>
 </div>
 
+<div class="cv-card">
+
 ## Education
 
 
@@ -112,3 +114,5 @@ redirect_from:
 
 - **AEC**: EuroSys 2023. ISSTA 2024. ECOOP 2024
 
+
+</div>
