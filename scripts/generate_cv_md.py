@@ -47,8 +47,6 @@ redirect_from:
   <a href="/files/cv-cn.pdf" class="btn btn--primary">Download CV (CN)</a>
 </div>
 
-<div class="cv-card" markdown="1">
-
 ## Education
 
 {% for edu in education %}
@@ -79,7 +77,6 @@ redirect_from:
 - **{{ role }}**: {{ desc }}
 {% endfor %}
 {% endif %}
-</div>
 """)
 
 CV_TEMPLATE_CN = Template("""---
@@ -92,8 +89,6 @@ author_profile: true
   <a href="/files/cv.pdf" class="btn btn--primary">下载英文简历 (EN)</a>
   <a href="/files/cv-cn.pdf" class="btn btn--primary">下载中文简历 (CN)</a>
 </div>
-
-<div class="cv-card" markdown="1">
 
 ## 教育经历
 
@@ -124,7 +119,6 @@ author_profile: true
 - **{{ role }}**：{{ desc }}
 {% endfor %}
 {% endif %}
-</div>
 """)
 
 
