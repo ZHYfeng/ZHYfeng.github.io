@@ -190,6 +190,8 @@ exclude:
   - package.json*
   - Rakefile
   - README
+  - scripts
+  - templates
   - tmp
   - vendor
 keep_files:

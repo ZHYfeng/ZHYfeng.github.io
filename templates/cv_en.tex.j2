@@ -1,0 +1,170 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[10pt, a4paper]{article}
+\newcommand{\FirstName}{Yu}
+\newcommand{\LastName}{Hao}
+\newcommand{\MyName}{\FirstName\ \LastName}
+\input{cv.tex}
+\begin{document}
+\small
+
+\thispagestyle{empty}
+
+{\fontsize{22pt}{0}\selectfont\MyName}\\[-0.1cm]
+\rule{\textwidth}{0.2pt}
+\begin{minipage}[t]{0.33\textwidth}
+	Last updated: \monthyear\today \\
+	Email: \href{mailto:\Email}{\Email} \\
+	Phone: 951-783-7821 \\
+\end{minipage}
+\begin{minipage}[t]{0.67\textwidth}
+	\begin{flushright}
+	Website: \href{https://zhyfeng.github.io}{zhyfeng.github.io} \\
+	\href{https://scholar.google.com/citations?user=R7rjoeEAAAAJ}{[Google Scholar]}
+	\href{https://dblp.org/pid/33/3270-6.html}{[DBLP]}
+	\href{https://github.com/ZHYfeng}{[Github]} \\
+	\end{flushright}
+\end{minipage}
+
+{{ summary }}
+
+\section{Education}
+\begin{EntriesTable2}{% for edu in education %}
+	\Duration{{- '{' }}{{ edu.period_start }}{{- '}' }}{{- '{' }}{{ edu.period_end }}{{- '}' }}  &{% if edu.degree %}
+	\textbf{{- '{' }}{{ edu.degree }}{{- '}' }}{% if edu.institution %} in {{ edu.institution }}.{% endif %}{% else %}{% if edu.institution %}{{ edu.institution }}.{% endif %}{% endif %}{% if edu.advisor %}
+	\newline Advisor: {% if edu.advisor_url %}\href{{- '{' }}{{ edu.advisor_url }}{{- '}' }}{{- '{' }}{{ edu.advisor }}{{- '}' }}{% else %}{{ edu.advisor }}{% endif %}{% endif %}{% if edu.keywords %}
+	\Keyword{{- '{' }}{{ edu.keywords | join(', ') }}{{- '}' }}{% endif %}
+	\\{% endfor %}
+\end{EntriesTable2}
+
+\section{Experience}
+\begin{EntriesTable2}{% for exp in experience %}
+	\Duration{{- '{' }}{{ exp.period_start }}{{- '}' }}{{- '{' }}{{ exp.period_end }}{{- '}' }} 
+	&
+	\textbf{{- '{' }}{{ exp.title }}{{- '}' }}{% if exp.mentor %}, {{ exp.role }}: {% if exp.mentor_url %}\href{{- '{' }}{{ exp.mentor_url }}{{- '}' }}{{- '{' }}{{ exp.mentor }}{{- '}' }}{% else %}{{ exp.mentor }}{% endif %}{% endif %}{% if exp.organization %}
+	\newline \textbf{{- '{' }}{{ exp.organization }}{{- '}' }}{% endif %}{% if exp.keywords %}
+	\Keyword{{- '{' }}{{ exp.keywords | join(', ') }}{{- '}' }}{% endif %}
+	\\{% endfor %}
+\end{EntriesTable2}
+
+\section{Thesis}
+\begin{EntriesTable}
+	\textbf{[PhD]}  &
+	Expanding the Boundaries of OS Kernel Fuzzing
+	\PDF{http://zhyfeng.github.io/files/Thesis-phd.pdf}
+	\href{https://escholarship.org/uc/item/55f3x8tb}{Permalink}
+	\Publications [C9, ICSE 22, Google Research Paper Rewards][C10, S\&P 23][C17, CCS 25, Distinguished Paper Award]
+	\\
+	\textbf{[Master]}  &
+	Research on Malicious Code Hiding Methods Based on Uncertain Interleaving of Concurrent Programs
+	\PDF{http://zhyfeng.github.io/files/Thesis-master.pdf}
+	\Publications [C3, QRS 21, Best Paper Award][J3, \textit{IEEE Transactions on Reliability}]
+	\\
+\end{EntriesTable}
+
+\section{Publications}
+[C]: Conference, [J]: Journal, [P]: Preprint
+\begin{EntriesTable}{% for pub in publications %}{% if pub.top_venue %}
+	\textbf{[{{ pub.id }}]}
+	\newline
+	\textbf{{- '{' }}{{ pub.venue_short }}{{- '}' }}{% if pub.venue_short2 %}
+	\newline
+	\textbf{{- '{' }}{{ pub.venue_short2 }}{{- '}' }}{% endif %}{% else %}
+	{[{{ pub.id }}]}
+	\newline
+	{{ pub.venue_short }}{% if pub.venue_short2 %}
+	\newline
+	{{ pub.venue_short2 }}{% endif %}{% endif %}
+	&
+	\PubTitle{{- '{' }}{{ pub.title }}{{- '}' }}
+	\newline {{ pub.authors | join(', ') }}{% if pub.venue %}
+	\newline \textit{{- '{' }}{{ pub.venue }}.}{% endif %}{% if pub.pdf %}
+	\PDF{{- '{' }}{{ pub.pdf }}{{- '}' }}{% endif %}{% if pub.github %}{% for gname, gurl in pub.github.items() %}
+	\GitHub{{- '{' }}{{ gname }}{{- '}' }}{{- '{' }}{{ gurl }}{{- '}' }}{% endfor %}{% endif %}{% if pub.links %}{% for link in pub.links %}
+	\Pub{{- '{' }}{{ link }}{{- '}' }}{% endfor %}{% endif %}{% if pub.tail_latex %}
+{{ pub.tail_latex }}{% elif pub.awards %}
+	\Publications{% for award in pub.awards %} {\color{red}[{{ award }}]}{% endfor %}{% endif %}
+	\\{% endfor %}
+\end{EntriesTable}
+
+\subsection{Patent}
+\begin{EntriesTable1}
+	&
+	WO2017181628 - TAINT ANALYSIS METHOD EMPLOYING SYMBOLIC COMPUTATION AND USED FOR DYNAMIC PARALLEL PROGRAM
+	\href{https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2017181628}{[PCT]}
+	\href{https://patentscope.wipo.int/search/en/detail.jsf?docId=CN178124948}{[CN]}
+	\\
+\end{EntriesTable1}
+
+\section{Presentations, Talks}
+\begin{EntriesTable1}
+	\Point
+	&
+	{E\&V: Prompting Large Language Models to Perform Static Analysis by Pseudo-code Execution and Verification}
+	\Publications
+	\textit{AGI Leap Summit 2024}
+	\Website{https://superagi.com/agi-leap-summit/}
+	\Publications
+	\textit{Symposium on the Science of Security, HoTSoS 2024}
+	\Website{https://sos-vo.org/node/106631}
+	\\
+	\Point
+	&
+	{SyzDescribe: Principled, Automated, Static Generation of Syscall Descriptions for Kernel Drivers}
+	\Publications
+	\textit{Linux Security Summit North America 2023}
+	\Website{https://lssna2023.sched.com/event/1K7b3}
+	\Slides{https://static.sched.com/hosted_files/lssna2023/94/LSS-NA-23-SyzDescribe.pdf}
+	\Youtube{https://youtu.be/gkGVgh3Y-54}
+	\Publications
+	\textit{Qualcomm Product Security Summit 2023}
+	\Website{https://qcbizdev.my.salesforce-sites.com/QCTConference/GenericSitePage?eventname=SecuritySummit\&page=Presentations}
+	\Publications
+	\textit{44th IEEE Symposium on Security and Privacy, S\&P 2023}
+	\Website{https://www.ieee-security.org/TC/SP2023/program.html}
+	\Youtube{https://youtu.be/xRq4vzM8EDs}
+	\Publications
+	\textit{Symposium on the Science of Security, HoTSoS 2024}
+	\Website{https://sos-vo.org/node/106943}
+	\\
+	\Point
+	&
+	{Demystifying the Dependency Challenge in Kernel Fuzzing}
+	\Publications
+	\textit{44rd IEEE/ACM International Conference on Software Engineering, ICSE 2022}
+	\Website{https://conf.researchr.org/details/icse-2022/icse-2022-papers/89/Demystifying-the-Dependency-Challenge-in-Kernel-Fuzzing}
+	\Slides{https://github.com/seclab-ucr/Dependency/blob/master/ICSE2022.pptx}
+	\Youtube{https://youtu.be/80F3RNzo1KU}
+	\\
+\end{EntriesTable1}
+
+{% if awards %}
+\section{Honors, Awards}
+\begin{EntriesTable}{% for award_group in awards %}
+	\Year{{- '{' }}{{ award_group.year }}{{- '}' }}{% for item in award_group['items'] %}
+	& {{ item }} \\{% endfor %}{% endfor %}
+\end{EntriesTable}
+{% endif %}
+
+{% if service %}
+\section{Academic Service}
+\begin{EntriesTable2}{% for role, desc in service.items() %}
+	{{ role }}
+	& {{ desc }} \\{% endfor %}
+\end{EntriesTable2}
+{% endif %}
+
+{% if references %}
+\section{References}
+\begin{EntriesTable2}{% for ref in references %}
+	{{ ref.label }}
+	&
+	{% if ref.name_url %}\href{ {{- ref.name_url -}} }{% endif %}{\textbf{ {{- ref.name -}} }}
+	\textit{ {{- ref.title -}} }
+	\newline {{ ref.affiliation }}
+	\newline {{ ref.contact_label }} {{ ref.contact }}
+	\\{% endfor %}
+\end{EntriesTable2}
+{% endif %}
+
+\end{document}

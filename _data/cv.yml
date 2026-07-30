@@ -1,0 +1,374 @@
+summary:
+  en: >-
+    My research focuses on operating-system security and program analysis for C/C++ systems, with recent work on applying LLMs to security analysis and software engineering tasks. I build and evaluate tools that combine fuzzing, static analysis, symbolic execution, and LLM-based program analysis for real-world systems such as Linux, Android, and HarmonyOS kernels. My work includes LLM-assisted static analysis, automated kernel fuzzing specification generation, and exploitability/security analysis workflows. These projects have led to papers in S\&P, USENIX Security, CCS, NDSS, ICSE, FSE, OOPSLA, and TSE, several open-source tools, invited talks, Linux kernel bug/CVE reports, and patches.
+  cn: >-
+    我的研究集中在操作系统安全和C/C++程序分析，近期工作包括将大语言模型用于安全分析和软件工程任务。我构建结合Fuzzing、静态分析、符号执行和LLM推理的工具，用于Linux、Android、鸿蒙内核等真实系统。相关工作包括LLM辅助静态分析、内核Fuzzing规格自动生成、漏洞可利用性分析和系统安全分析流程。研究成果发表在S\&P、USENIX Security、CCS、NDSS、ICSE、FSE、OOPSLA和TSE等会议/期刊，并产出多个开源工具、报告Linux内核漏洞/CVE和贡献补丁。
+education:
+- degree:
+    en: Ph.D.
+    cn: 博士
+  institution:
+    en: Computer Science, University of California, Riverside, USA
+    cn: 加州大学河滨分校，计算机科学
+  period_start: 09/2018
+  period_end: 09/2024
+  advisor:
+    en: Zhiyun Qian
+    cn: Zhiyun Qian
+  advisor_url: https://www.cs.ucr.edu/~zhiyunq/index.html
+  keywords:
+    en:
+    - Operating System Security
+    - LLMs for Security
+    - Fuzzing
+    - Symbolic Execution
+    - Static Analysis
+    cn:
+    - 操作系统安全
+    - LLMs for Security
+    - 模糊测试
+    - 符号执行
+    - 静态分析
+- degree:
+    en: Master
+    cn: 硕士
+  institution:
+    en: Control Science and Engineering, Xi'an Jiaotong University, China
+    cn: 西安交通大学，控制科学与工程
+  period_start: 09/2015
+  period_end: 06/2018
+  advisor:
+    en: Ting Liu
+    cn: 刘烃
+  advisor_url: null
+  keywords:
+    en:
+    - Concurrency Security
+    - Symbolic Execution
+    cn:
+    - 并发安全
+    - 符号执行
+- degree:
+    en: Bachelor
+    cn: 学士
+  institution:
+    en: Control Science and Engineering, Xi'an Jiaotong University, China
+    cn: 西安交通大学，控制科学与工程
+  period_start: 09/2011
+  period_end: 06/2015
+  advisor:
+    en: ''
+    cn: null
+  advisor_url: null
+  keywords:
+    en: []
+    cn: []
+- degree:
+    en: ''
+    cn: ''
+  institution:
+    en: Hohhot No.2 High School, Inner Mongolia, China
+    cn: 呼和浩特第二中学，内蒙古自治区
+  period_start: 09/2008
+  period_end: 06/2011
+  advisor:
+    en: ''
+    cn: null
+  advisor_url: null
+  keywords:
+    en: []
+    cn: []
+experience:
+- title:
+    en: Security Researcher
+    cn: 系统安全研究员, 天才少年Offer
+  organization:
+    en: HarmonyOS System Security Team, Huawei, China
+    cn: 终端系统安全组，华为, 中国
+  period_start: 10/2024
+  period_end:
+    en: present
+    cn: 至今
+  keywords:
+    en:
+    - HarmonyOS Security
+    - Fuzzing
+    - LLMs for Security
+    - Static Analysis
+    cn:
+    - 鸿蒙系统安全
+    - Fuzzing
+    - LLMs for Security
+    - 静态分析
+- title:
+    en: Research Intern
+    cn: Research Intern
+  organization:
+    en: Systems Security and Privacy Research Group, Microsoft Research, USA
+    cn: Systems Security and Privacy Research Group, 微软研究院, 美国
+  period_start: 06/2023
+  period_end: 09/2023
+  keywords:
+    en:
+    - LLMs for Security / Program Analysis
+    cn:
+    - LLMs for Security / Program Analysis
+  mentor:
+    en: Weidong Cui
+    cn: Weidong Cui
+  mentor_url:
+    en: https://www.microsoft.com/en-us/research/people/wdcui/
+    cn: https://www.microsoft.com/en-us/research/people/wdcui/
+  role:
+    en: Mentor
+    cn: 导师
+- title:
+    en: Research Intern
+    cn: Research Intern
+  organization:
+    en: Android Security Team, Google, USA
+    cn: Android Security Team, 谷歌, 美国
+  period_start: 06/2022
+  period_end: 09/2022
+  keywords:
+    en:
+    - Linux/Android Kernel Security
+    - Fuzzing
+    - Static Analysis
+    cn:
+    - Linux/Android 内核安全
+    - Fuzzing
+    - 静态分析
+  mentor:
+    en: Kris Alder
+    cn: Kris Alder
+  role:
+    en: Mentor
+    cn: 导师
+- title:
+    en: Graduate Student Researcher
+    cn: Graduate Student Researcher
+  organization:
+    en: Center for Research and Education in Cyber Security and Privacy (CRESP), University of California, Riverside, USA
+    cn: 加州大学河滨分校，计算机科学
+  period_start: 09/2018
+  period_end: 09/2024
+  keywords:
+    en:
+    - Operating System Security
+    - LLMs for Security
+    - Fuzzing
+    - Symbolic Execution
+    - Static Analysis
+    cn: []
+  mentor:
+    en: Zhiyun Qian
+    cn: Zhiyun Qian
+  mentor_url:
+    en: https://www.cs.ucr.edu/~zhiyunq/index.html
+    cn: https://www.cs.ucr.edu/~zhiyunq/index.html
+  role:
+    en: Advisor
+    cn: 导师
+- title:
+    en: Research Assistant
+    cn: 研究助理
+  organization:
+    en: Ministry of Education Key Lab For Intelligent Networks and Network Security, Xi'an Jiaotong University, China
+    cn: 西安交通大学，控制科学与工程
+  period_start: 06/2013
+  period_end: 06/2018
+  keywords:
+    en:
+    - Concurrency Security
+    - Symbolic Execution
+    cn: []
+  mentor:
+    en: Ting Liu
+    cn: 刘烃
+  role:
+    en: Advisor
+    cn: 导师
+awards:
+  en:
+  - year: 2025
+    items:
+    - CCS 2025, Distinguished Paper Award
+  - year: 2024
+    items:
+    - Laxmi Bhuyan Fellowship Award, University of California, Riverside
+    - Dissertation Completion Fellowship Award, University of California, Riverside
+  - year: 2023
+    items:
+    - IEEE S\&P Student Travel Grant
+    - Google Research Paper Rewards
+    - The Linux Foundation's Travel Fund
+  - year: 2021
+    items:
+    - QRS 2021 Best Paper Award
+  - year: 2018
+    items:
+    - Dean's Distinguished Fellowship, University of California, Riverside
+    - Excellent Graduated Student, Xi'an JiaoTong University
+  - year: 2017
+    items:
+    - Excellent Graduate Student, Xi'an JiaoTong University
+    - Graduate Student Fellowship, Xi'an JiaoTong University
+    - Sheng Han High IQ Association
+    - IQ >= 135, Club at the same level as Mensa
+  - year: 2016
+    items:
+    - Graduate Student Fellowship, Xi'an JiaoTong University
+  - year: 2015
+    items:
+    - Graduate Student Fellowship, Xi'an JiaoTong University
+  - year: 2014
+    items:
+    - Siyuan Scholarship, Xi'an JiaoTong University
+  - year: 2013
+    items:
+    - Siyuan Scholarship, Xi'an JiaoTong University
+    - Second Prize, Xi'an JiaoTong University ACM-ICPC Competition
+    - Second Prize, Xi'an JiaoTong University MCM Competition
+  - year: 2010
+    items:
+    - First Prize, Mathematical Olympiad in Provinces, Inner Mongolia
+    - Ranking 4th at that year in the province with population of 25 million
+    - Third Prize, Physics Olympiad in Provinces, Inner Mongolia
+    - Third Prize, Chemistry Olympiad in Provinces, Inner Mongolia
+  - year: 2007
+    items:
+    - First Prize, National Mathematics Invitational Competition, Inner Mongolia
+    - '{A total of 4 at that year in the province with population of 25 million}'
+  cn:
+  - year: 2025
+    items:
+    - CCS 2025, Distinguished Paper Award
+  - year: 2024
+    items:
+    - Laxmi Bhuyan Fellowship Award, University of California, Riverside
+    - Dissertation Completion Fellowship Award, University of California, Riverside
+  - year: 2023
+    items:
+    - IEEE S\&P Student Travel Grant
+    - Google Research Paper Rewards
+    - The Linux Foundation's Travel Fund
+  - year: 2021
+    items:
+    - QRS 2021 Best Paper Award
+  - year: 2018
+    items:
+    - Dean's Distinguished Fellowship, University of California, Riverside
+    - 西安交通大学优秀硕士毕业生
+  - year: 2017
+    items:
+    - 胜寒协会成员
+  - year: 2013
+    items:
+    - 西安交通大学程序设计竞赛，二等奖
+    - 西安交通大学数学建模竞赛，二等奖
+  - year: 2010
+    items:
+    - 内蒙古高中数学联赛，一等奖
+    - 内蒙古高中物理联赛，三等奖
+    - 内蒙古高中化学联赛，三等奖
+  - year: 2007
+    items:
+    - 全国奥林匹克数学竞赛，金牌
+service:
+  en:
+    Program Committee: CCS 2026. RAID 2026. FORGE@ICSE 2025, 2024. MSR 2024(Junior PC)
+    Reviewer: TIFS 2024, 2023. TDSC 2026. TOSEM 2026, 2025. Computing Surveys 2026, EAI SecureComm 2023
+    Sub-Reviewer: S\&P 2025, 2024, 2021, 2020. CCS 2024. USENIX Security 2025, 2021. NDSS 2025, 2021, 2020
+    AEC: EuroSys 2023. ISSTA 2024. ECOOP 2024
+  cn:
+    Program Committee: CCS 2026. RAID 2026. FORGE@ICSE 2025, 2024. MSR 2024(Junior PC)
+    审稿人: TIFS 2024, 2023. TDSC 2026. TOSEM 2026, 2025. Computing Surveys 2026, EAI SecureComm 2023
+    外部审稿人: S\&P 2020, 2021, 2024, 2025. CCS 2024. USENIX Security 2021, 2025. NDSS 2020, 2021, 2025
+    AEC: EuroSys 2023. ISSTA 2024. ECOOP 2024
+references:
+- label:
+    en: Advisor \newline of Ph.D. Degree
+    cn: 博士导师
+  name:
+    en: Zhiyun Qian
+    cn: Zhiyun Qian
+  name_url: https://www.cs.ucr.edu/~zhiyunq/index.html
+  title:
+    en: Everett and Imogene Ross Professor
+    cn: Everett and Imogene Ross 教授
+  affiliation:
+    en: Computer Science and Engineering department, University of California, Riverside, USA
+    cn: 加州大学河滨分校，计算机科学与技术学院
+  contact_label:
+    en: 'Contact:'
+    cn: '联系方式:'
+  contact: zhiyunq@cs.ucr.edu
+- label:
+    en: Collaborator
+    cn: 论文合作者
+  name:
+    en: Ardalan Amiri Sani
+    cn: Ardalan Amiri Sani
+  name_url: https://ics.uci.edu/~ardalan/index.html
+  title:
+    en: Associate Professor
+    cn: 副教授
+  affiliation:
+    en: Computer Science Department, University of California, Irvine, USA
+    cn: 加州大学尔湾分校，计算机科学与技术学院
+  contact_label:
+    en: 'Contact:'
+    cn: '联系方式:'
+  contact: ardalan@uci.edu
+- label:
+    en: Collaborator
+    cn: 论文合作者
+  name:
+    en: Srikanth V. Krishnamurthy
+    cn: Srikanth V. Krishnamurthy
+  name_url: https://www.cs.ucr.edu/~krish/
+  title:
+    en: Professor, IEEE Fellow
+    cn: 教授, IEEE Fellow
+  affiliation:
+    en: Computer Science and Engineering department, University of California, Riverside, USA
+    cn: 加州大学河滨分校，计算机科学与技术学院
+  contact_label:
+    en: 'Contact:'
+    cn: '联系方式:'
+  contact: krish@cs.ucr.edu
+- label:
+    en: Intern Mentor \newline at Microsoft Research
+    cn: 实习导师 \newline 微软研究院
+  name:
+    en: Weidong Cui
+    cn: Weidong Cui
+  name_url: https://www.microsoft.com/en-us/research/people/wdcui/
+  title:
+    en: Partner Research Manager
+    cn: Partner Research Manager
+  affiliation:
+    en: Systems Security and Privacy Research Group, Microsoft Research, Redmond, USA
+    cn: Systems Security and Privacy Research Group, 微软研究院, 美国
+  contact_label:
+    en: 'Contact:'
+    cn: '联系方式:'
+  contact: Weidong.Cui@microsoft.com
+- label:
+    en: Advisor \newline of Master Degree
+    cn: 硕士导师
+  name:
+    en: Ting Liu
+    cn: 刘烃
+  name_url: null
+  title:
+    en: Professor, Associate Dean
+    cn: 教授, 副院长
+  affiliation:
+    en: School of Cyber Science and Engineering, Xi'an Jiaotong University, China
+    cn: 西安交通大学，网络空间安全学院
+  contact_label:
+    en: 'Contact:'
+    cn: '联系方式:'
+  contact: tingliu@mail.xjtu.edu.cn
