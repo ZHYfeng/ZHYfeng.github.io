@@ -48,15 +48,17 @@ npm run watch:js      # Watch for changes during development
 | `_config.yml` | **Main site config** – title, URL, author profile, theme, publication categories, disqus/utterances, google analytics |
 | `_config_docker.yml` | Docker-specific overrides (merged with `_config.yml`) |
 | `_data/navigation.yml` | Site navigation menu links |
-| `_data/authors.yml` | Author profiles (if multi-author site) |
-| `_data/cv.json` | Structured CV data |
+| `_data/cv.yml` | Bilingual CV data |
+| `_data/publications.yml` | Publication data |
+| `_data/talks.yml` | Talk data |
+| `_data/projects.yml` | Portfolio project data |
 | `_data/ui-text.yml` | Customizable UI text strings |
 
 ### Template & Layout Files (Advanced)
 
 | Path | Purpose |
 |------|---------|
-| `_layouts/` | Page templates (default, single, cv-layout, talk, splash) |
+| `_layouts/` | Page templates (default, single, archive, talk, compress) |
 | `_includes/` | Reusable template partials (header, footer, sidebar, comment providers) |
 | `_sass/` | SCSS stylesheets (themes, syntax highlighting, layouts) |
 | `assets/` | Images, JavaScript, CSS (generated from SCSS) |
@@ -115,16 +117,11 @@ title: "Page Title"
 
 ## Bulk Content Generation
 
-Use markdown generators in `markdown_generator/` to convert structured data into Jekyll-formatted content:
-
-- **`publications.py`** – Convert CSV/TSV to publication markdown (with Python or Jupyter notebook)
-- **`talks.py`** – Convert TSV to talk markdown
-- **`PubsFromBib.ipynb`** – Convert BibTeX to publication markdown
-- **`OrcidToBib.ipynb`** – Convert ORCID profile to BibTeX then publications
+Edit `_data/cv.yml`, `_data/publications.yml`, `_data/talks.yml`, and `_data/projects.yml`, then regenerate the website content through the Makefile. The generators live in `scripts/` and use the templates in `templates/`.
 
 Example:
 ```bash
-python3 markdown_generator/publications.py markdown_generator/publications.tsv
+make quick
 ```
 
 ## Site Configuration (Key Settings in `_config.yml`)
@@ -135,7 +132,7 @@ python3 markdown_generator/publications.py markdown_generator/publications.tsv
 - `repository` – Must be correct for GitHub Pages: `[username]/[username].github.io`
 - `author.name`, `author.bio`, `author.avatar` – Your profile info
 - `author.social_links` – Links to your social/academic profiles
-- `site_theme` – Visual theme (default, air, sunrise, mint, dirt, contrast)
+- `site_theme` – Visual theme (`default`, with light and dark variants)
 
 **Content settings:**
 - `collections_dir` – Default: `. (root)`

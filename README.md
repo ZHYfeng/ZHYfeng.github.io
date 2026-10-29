@@ -11,7 +11,7 @@
 1. Edit site-wide configuration in `_config.yml` and double check that the `url` is the one that you just selected in the previous step and that `repository` reflects the correct path for your repository.
 1. Add your site content, upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.
 1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
+1. Edit the YAML files in `_data/` and run `make quick` to regenerate the CV, publications, talks, and portfolio pages using `scripts/` and `templates/`.
 
 See more info at https://academicpages.github.io/
 
