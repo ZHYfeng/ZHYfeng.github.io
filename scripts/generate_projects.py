@@ -4,11 +4,8 @@ import argparse
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 
+from cv_data import ROOT, load_yaml, publication_catalog, referenced_publication
 
-def load_yaml(path):
-    import yaml
-    with open(path, 'r', encoding='utf-8') as f:
-        return yaml.safe_load(f) or {}
 
 
 def clean_latex(text):
@@ -27,10 +24,18 @@ def main():
     parser.add_argument('--data', required=True, help='Projects YAML file')
     parser.add_argument('--template', required=True, help='Jinja2 template file')
     parser.add_argument('--output-dir', required=True, help='Output directory for project pages')
+    parser.add_argument('--pubs', default=ROOT / '_data/publications.yml', help='Generated publications YAML')
     args = parser.parse_args()
 
     data = load_yaml(args.data)
     projects = data.get('projects', [])
+    catalog = publication_catalog(args.pubs)
+    for project in projects:
+        pub = referenced_publication(project, catalog)
+        project['tagline'] = pub['title'].split(': ', 1)[-1]
+        project['paper'] = pub.get('pdf') or next(iter(pub.get('links', [])), '')
+        project['github'] = next(iter(pub.get('github', {}).values()), '')
+        project['year'] = pub['year']
 
     template_path = Path(args.template)
     env = Environment(loader=FileSystemLoader(template_path.parent))

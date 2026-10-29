@@ -191,6 +191,8 @@ exclude:
   - Rakefile
   - README
   - scripts
+  - tests
+  - requirements.txt
   - templates
   - tmp
   - vendor

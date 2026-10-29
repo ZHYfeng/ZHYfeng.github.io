@@ -16,7 +16,7 @@ from pathlib import Path
 
 def make_filename(pub):
     """Generate a filename like YYYY-MM-DD-short-title.md"""
-    year = pub.get('year', 2099)
+    year = pub.get('year') or 2099
     slug = pub.get('slug') or 'untitled'
     # Use conference month if available, otherwise default to July
     month = '07'
@@ -69,7 +69,9 @@ title: >-
   {title}
 collection: publications
 category: {category}
-permalink: /publication/{slug}
+permalink: /publication/{slug}/
+redirect_from:
+  - /publication/{slug}.html
 excerpt: >-
   {excerpt}
 date: {date}
@@ -86,7 +88,7 @@ citation: >-
 
 def generate_pub_page(pub):
     """Generate a single publication markdown page."""
-    year = pub.get('year', 2099)
+    year = pub.get('year') or 2099
     slug = pub.get('slug') or 'untitled'
     date = f"{year}-07-01"  # Default to July 1st
 
@@ -117,7 +119,8 @@ def generate_pub_page(pub):
         details.append(f"**Authors:** {', '.join(pub['authors'])}")
     if venue:
         details.append(f"**Venue:** {venue}")
-    details.append(f"**Year:** {year}")
+    if pub.get('year'):
+        details.append(f"**Year:** {pub['year']}")
 
     body_parts.append('\n\n'.join(details))
 
@@ -134,6 +137,8 @@ def generate_pub_page(pub):
     if pub.get('links'):
         for url in pub['links']:
             links.append(f'[🔗 Publisher]({url})')
+    for link in pub.get('related_links', []):
+        links.append(f'[🔗 {link["text"]}]({link["url"]})')
     if pub.get('website'):
         links.append(f'[🌐 Website]({pub["website"]})')
     if pub.get('youtube'):
@@ -146,12 +151,12 @@ def generate_pub_page(pub):
 
     # Awards
     if pub.get('awards') and not any(a == 'red' for a in pub['awards']):
-        awards_str = '  \n'.join(f'🏆 {a}' for a in pub['awards'] if a != 'red' and a != 'red,')
-        body_parts.append(f'**Awards & Recognitions:**  \n{awards_str}')
+        awards_str = '<br>\n'.join(f'🏆 {a}' for a in pub['awards'] if a != 'red' and a != 'red,')
+        body_parts.append(f'**Awards & Recognitions:**<br>\n{awards_str}')
 
     body = '\n\n'.join(body_parts)
 
-    return PUB_PAGE_TEMPLATE.format(
+    page = PUB_PAGE_TEMPLATE.format(
         title=title_escaped,
         category=get_category(pub.get('type', 'conferences')),
         slug=slug,
@@ -162,6 +167,7 @@ def generate_pub_page(pub):
         citation=citation_escaped,
         body=body,
     )
+    return '\n'.join(line.rstrip() for line in page.splitlines()) + '\n'
 
 
 def main():

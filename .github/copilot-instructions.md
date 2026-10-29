@@ -48,10 +48,11 @@ npm run watch:js      # Watch for changes during development
 | `_config.yml` | **Main site config** – title, URL, author profile, theme, publication categories, disqus/utterances, google analytics |
 | `_config_docker.yml` | Docker-specific overrides (merged with `_config.yml`) |
 | `_data/navigation.yml` | Site navigation menu links |
-| `_data/cv.yml` | Bilingual CV data |
-| `_data/publications.yml` | Publication data |
-| `_data/talks.yml` | Talk data |
-| `_data/projects.yml` | Portfolio project data |
+| `../CV/data/` | Authoritative bilingual CV, publication, and label data |
+| `_data/cv.yml`, `_data/i18n.yml`, `_data/publications.yml` | Generated snapshots from the CV repository |
+| `_data/publication_urls.yml` | Website permalinks keyed by stable CV publication IDs |
+| `_data/talks.yml` | Website event metadata with `publication` references |
+| `_data/projects.yml` | Website project descriptions with `publication` references |
 | `_data/ui-text.yml` | Customizable UI text strings |
 
 ### Template & Layout Files (Advanced)
@@ -117,11 +118,12 @@ title: "Page Title"
 
 ## Bulk Content Generation
 
-Edit `_data/cv.yml`, `_data/publications.yml`, `_data/talks.yml`, and `_data/projects.yml`, then regenerate the website content through the Makefile. The generators live in `scripts/` and use the templates in `templates/`.
+Edit CV content in `../CV/data/`, then run `make quick` to synchronize snapshots and regenerate website pages. For a different source directory, use `make quick CV_DATA_DIR=/path/to/CV/data`. Commit the generated data and pages with the change; GitHub Pages builds from these snapshots. See [the data workflow](../README.md#网站数据同步) for source files, visibility rules, PDF generation, and website-specific metadata.
 
 Example:
 ```bash
 make quick
+make test
 ```
 
 ## Site Configuration (Key Settings in `_config.yml`)

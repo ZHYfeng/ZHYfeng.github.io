@@ -1,0 +1,23 @@
+# Website permalinks keyed by the stable IDs in CV/data/publications.yml.
+neuromerge-2026: neuromerge-ml-guided-state-merging-for-efficient-symbolic-execution
+syzspec-2025: syzspec-specification-generation-for-linux-kernel-fuzzing-via-under-constrained-
+scad-2025: scad-towards-a-universal-and-automated-network-side-channel-vulnerability-detect
+symbisect-2024: symbisect-accurate-bisection-for-fuzzer-exposed-vulnerabilities
+llift-2024: enhancing-static-analysis-for-practical-bug-detection-an-llm-integrated-approach
+syzgen-plusplus-2024: syzgen-dependency-inference-for-augmenting-kernel-driver-fuzzing
+syzbridge-2024: syzbridge-bridging-the-gap-in-exploitability-assessment-of-linux-kernel-bugs-in-
+ev-2023: ev-prompting-large-language-models-to-perform-static-analysis-by-pseudo-code-exe
+gpt-experiment-2023: assisting-static-analysis-with-large-language-models-a-chatgpt-experiment
+syzdescribe-2023: syzdescribe-principled-automated-static-generation-of-syscall-descriptions-for-k
+dependency-2022: demystifying-the-dependency-challenge-in-kernel-fuzzing
+progressive-scrutiny-2022: progressive-scrutiny-incremental-detection-of-ubi-bugs-in-the-linux-kernel
+adblock-2021: eluding-ml-based-adblockers-with-actionable-adversarial-examples
+themis-2021: themis-ambiguity-aware-network-intrusion-detection-based-on-symbolic-model-compa
+suture-2021: statically-discovering-high-order-taint-style-vulnerabilities-in-os-kernels
+ubitect-2020: ubitect-a-precise-and-scalable-method-to-detect-use-before-initialization-bugs-i
+concspectre-journal: concspectre-be-aware-of-forthcoming-malware-hidden-in-concurrent-programs-journal
+concspectre-2021: concspectre-be-aware-of-forthcoming-malware-hidden-in-concurrent-programs
+taint-tse: tell-you-a-definite-answer-whether-your-data-is-tainted-during-thread-scheduling
+sequential-access: debugging-multithreaded-programs-as-if-they-were-sequential-access
+dataflow-2017: automated-testing-of-definition-use-data-flow-for-multithreaded-programs
+sequential-sate: debugging-multithreaded-programs-as-if-they-were-sequential

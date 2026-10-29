@@ -1,160 +1,86 @@
-# Makefile — YAML-as-source CV + Website pipeline
-# =================================================
-# Source of truth:  _data/cv_sections.yml, _data/cv_sections_cn.yml, _data/publications.yml
-# Generated:        ../CV/Yu_Hao-CV.tex → PDF, _pages/cv.md, _publications/*.md
-#
-# Usage:
-#   make all         Full pipeline (YAML → LaTeX → PDF → web pages)
-#   make web         Web only (skip LaTeX/PDF)
-#   make cv          LaTeX + PDF only
-#   make quick       Regenerate web from existing YAML (1s)
-#   make serve       Local Jekyll preview
-#   make deploy      Git commit + push
-#   make migrate     First-time: extract LaTeX CV → YAML (one-time)
+# CV/data is the source of truth; _data/cv.yml, i18n.yml and publications.yml
+# are committed snapshots so GitHub Pages can build without the CV checkout.
+PYTHON ?= python3
+CV_DIR ?= ../CV
+CV_DATA_DIR ?= $(CV_DIR)/data
 
-CV_DIR = ../CV
+CV_YML = _data/cv.yml
+PUBS_YML = _data/publications.yml
+I18N_YML = _data/i18n.yml
+CV_PAGE = _pages/cv.md
+CV_PAGE_CN = _pages/cv-cn.md
+PUB_PAGE = _pages/publications.md
+PUB_DIR = _publications
+TALK_DIR = _talks
+PROJ_DIR = _portfolio
+TEMPLATE_DIR = templates
+SHARED_DATA = scripts/cv_data.py
 
-# ── Source YAML (the truth) ──
-CV_YML            = _data/cv.yml
-PUBS_YML          = _data/publications.yml
-
-# ── Generated files ──
-CV_TEX_OUT      = $(CV_DIR)/Yu_Hao-CV.tex
-CV_TEX_CN_OUT   = $(CV_DIR)/Yu_Hao-CV-CN.tex
-CV_PDF          = $(CV_DIR)/Yu_Hao-CV.pdf
-CV_PDF_CN       = $(CV_DIR)/Yu_Hao-CV-CN.pdf
-CV_PAGE         = _pages/cv.md
-CV_PAGE_CN      = _pages/cv-cn.md
-PUB_PAGE        = _pages/publications.md
-PUB_DIR         = _publications
-TALK_DATA       = _data/talks.yml
-TALK_DIR        = _talks
-PROJ_DATA       = _data/projects.yml
-PROJ_DIR        = _portfolio
-
-# ── Templates ──
-PUB_MD_TMPL      = $(TEMPLATE_DIR)/publications.md.j2
-TEMPLATE_DIR     = templates
-CV_TEX_TMPL      = $(TEMPLATE_DIR)/cv_en.tex.j2
-CV_TEX_CN_TMPL   = $(TEMPLATE_DIR)/cv_cn.tex.j2
-
-# ── Scripts ──
-GEN_CV_TEX       = scripts/generate_cv_tex.py
-GEN_CV_MD        = scripts/generate_cv_md.py
-GEN_PUB_PAGES    = scripts/generate_pub_pages.py
-GEN_PUB_LIST     = scripts/generate_pub_list.py
-GEN_TALKS        = scripts/generate_talks.py
-GEN_PROJECTS     = scripts/generate_projects.py
-EXTRACT_SECTIONS = scripts/extract_cv_sections.py
-EXTRACT_PUBS     = scripts/extract_publications.py
-
-.PHONY: all web cv quick migrate serve deploy clean help
+.PHONY: all web quick sync-data sync-web-pages generated-web sync-pub-pages \
+        sync-talks sync-projects cv cv-pdf serve deploy clean help test
 
 all: web cv-pdf
-	@echo ""
-	@echo "╔══════════════════════════════════════════════════════╗"
-	@echo "║  ✅  全部同步完成（YAML → LaTeX → PDF → Web）      ║"
-	@echo "╚══════════════════════════════════════════════════════╝"
 
-# ── Web content (always available, no LaTeX needed) ──
-web: sync-web-pages
-	@echo "✅ Web content generated from YAML"
+web quick: sync-web-pages
 
-sync-web-pages: $(CV_PAGE) $(CV_PAGE_CN) $(PUB_PAGE) sync-pub-pages sync-talks sync-projects
+# Read snapshot timestamps after synchronization completes, even with make -j.
+sync-web-pages: sync-data
+	$(MAKE) generated-web
 
-$(CV_PAGE): $(CV_YML) $(GEN_CV_MD)
-	python3 $(GEN_CV_MD) --data $(CV_YML) --lang en --output $@
+sync-data:
+	$(PYTHON) scripts/sync_cv_data.py --data-dir "$(CV_DATA_DIR)"
 
-$(CV_PAGE_CN): $(CV_YML) $(GEN_CV_MD)
-	python3 $(GEN_CV_MD) --data $(CV_YML) --lang cn --output $@
+generated-web: $(CV_PAGE) $(CV_PAGE_CN) $(PUB_PAGE) sync-pub-pages sync-talks sync-projects
 
-$(PUB_PAGE): $(PUBS_YML) $(PUB_MD_TMPL) $(GEN_PUB_LIST)
-	python3 $(GEN_PUB_LIST) --data $(PUBS_YML) --template $(PUB_MD_TMPL) --output $@
+$(CV_PAGE): $(CV_YML) $(I18N_YML) scripts/generate_cv_md.py $(SHARED_DATA)
+	$(PYTHON) scripts/generate_cv_md.py --data $(CV_YML) --lang en --output $@
 
-.PHONY: sync-pub-pages
-sync-pub-pages: $(PUBS_YML) $(GEN_PUB_PAGES)
-	rm -f $(PUB_DIR)/*.md
-	python3 $(GEN_PUB_PAGES) --data $(PUBS_YML) --output-dir $(PUB_DIR)
+$(CV_PAGE_CN): $(CV_YML) $(I18N_YML) scripts/generate_cv_md.py $(SHARED_DATA)
+	$(PYTHON) scripts/generate_cv_md.py --data $(CV_YML) --lang cn --output $@
 
-$(PUB_DIR): sync-pub-pages
+$(PUB_PAGE): $(PUBS_YML) $(TEMPLATE_DIR)/publications.md.j2 scripts/generate_pub_list.py
+	$(PYTHON) scripts/generate_pub_list.py --data $(PUBS_YML) --template $(TEMPLATE_DIR)/publications.md.j2 --output $@
 
-# ── Talks ──
-.PHONY: sync-talks
-sync-talks: $(TALK_DATA) $(GEN_TALKS)
-	rm -f $(TALK_DIR)/*.md
-	python3 $(GEN_TALKS) --data $(TALK_DATA) --template templates/talk.md.j2 --output-dir $(TALK_DIR)
+sync-pub-pages: $(PUBS_YML) scripts/generate_pub_pages.py
+	$(PYTHON) scripts/generate_pub_pages.py --data $(PUBS_YML) --output-dir $(PUB_DIR)
 
-$(TALK_DIR): sync-talks
+sync-talks: _data/talks.yml $(PUBS_YML) scripts/generate_talks.py $(SHARED_DATA) $(TEMPLATE_DIR)/talk.md.j2
+	$(PYTHON) scripts/generate_talks.py --data _data/talks.yml --pubs $(PUBS_YML) --template $(TEMPLATE_DIR)/talk.md.j2 --output-dir $(TALK_DIR)
 
-# ── Projects / Portfolio ──
-.PHONY: sync-projects
-sync-projects: $(PROJ_DATA) $(GEN_PROJECTS)
-	rm -f $(PROJ_DIR)/*.md
-	python3 $(GEN_PROJECTS) --data $(PROJ_DATA) --template templates/project.md.j2 --output-dir $(PROJ_DIR)
+sync-projects: _data/projects.yml $(PUBS_YML) scripts/generate_projects.py $(SHARED_DATA) $(TEMPLATE_DIR)/project.md.j2
+	$(PYTHON) scripts/generate_projects.py --data _data/projects.yml --pubs $(PUBS_YML) --template $(TEMPLATE_DIR)/project.md.j2 --output-dir $(PROJ_DIR)
 
-$(PROJ_DIR): sync-projects
+# Let the CV repository own its LaTeX generation and PDF compilation.
+cv:
+	$(MAKE) -C "$(CV_DIR)" tex PYTHON="$(PYTHON)"
 
-# ── LaTeX CV → PDF ──
-cv: $(CV_TEX_OUT) $(CV_TEX_CN_OUT)
-	@echo "✅ LaTeX sources generated from YAML"
+cv-pdf:
+	$(MAKE) -C "$(CV_DIR)" pdf PYTHON="$(PYTHON)"
+	cp "$(CV_DIR)/Yu_Hao-CV.pdf" files/cv.pdf
+	cp "$(CV_DIR)/Yu_Hao-CV-CN.pdf" files/cv-cn.pdf
 
-cv-pdf: cv
-	@echo "📄 Compiling LaTeX CV (xelatex)..."
-	@cd $(CV_DIR) && xelatex -interaction=nonstopmode Yu_Hao-CV.tex > /dev/null 2>&1; \
-	  if [ -f Yu_Hao-CV.pdf ]; then cp Yu_Hao-CV.pdf ../ZHYfeng.github.io/files/cv.pdf; echo "✅ EN PDF"; \
-	  else echo "⚠️  EN PDF failed"; grep "^!" Yu_Hao-CV.log 2>/dev/null | head -5; fi
-	@cd $(CV_DIR) && xelatex -interaction=nonstopmode Yu_Hao-CV-CN.tex > /dev/null 2>&1; \
-	  if [ -f Yu_Hao-CV-CN.pdf ]; then cp Yu_Hao-CV-CN.pdf ../ZHYfeng.github.io/files/cv-cn.pdf; echo "✅ CN PDF"; \
-	  else echo "⚠️  CN PDF failed"; grep "^!" Yu_Hao-CV-CN.log 2>/dev/null | head -5; fi
+test:
+	$(PYTHON) -m unittest discover -s tests -v
 
-$(CV_TEX_OUT): $(CV_YML) $(PUBS_YML) $(CV_TEX_TMPL) $(GEN_CV_TEX)
-	python3 $(GEN_CV_TEX) --data $(CV_YML) --pubs $(PUBS_YML) --template $(CV_TEX_TMPL) --lang en --output $@
-
-$(CV_TEX_CN_OUT): $(CV_YML) $(PUBS_YML) $(CV_TEX_CN_TMPL) $(GEN_CV_TEX)
-	python3 $(GEN_CV_TEX) --data $(CV_YML) --pubs $(PUBS_YML) --template $(CV_TEX_CN_TMPL) --lang cn --output $@
-
-# ── Quick: regenerate web from existing YAML (fastest) ──
-quick: sync-web-pages
-	@echo "✅ Quick sync (1s)"
-
-# ── One-time migration: extract existing LaTeX CV → YAML ──
-migrate:
-	@echo "📋 Extracting existing LaTeX CV into YAML..."
-	python3 $(EXTRACT_SECTIONS) --tex $(CV_DIR)/Yu_Hao-CV.tex --output /tmp/_cv_en.yml
-	python3 $(EXTRACT_SECTIONS) --tex $(CV_DIR)/Yu_Hao-CV-CN.tex --lang cn --output /tmp/_cv_cn.yml
-	python3 $(EXTRACT_PUBS) --tex $(CV_DIR)/Yu_Hao-CV.tex --output $(PUBS_YML)
-	python3 scripts/merge_cv_langs.py --en /tmp/_cv_en.yml --cn /tmp/_cv_cn.yml --output $(CV_YML)
-	rm -f /tmp/_cv_en.yml /tmp/_cv_cn.yml
-	@echo ""
-	@echo "✅ Migration complete. YAML files created."
-	@echo "   From now on, edit _data/cv.yml and run 'make all'."
-
-# ── Local preview ──
 serve:
 	bundle exec jekyll serve -l -H localhost
 
-# ── Deploy ──
 deploy:
 	git add -A
 	git status
 	@read -p "Commit message: " msg; \
 	git commit -m "$$msg" && git push
-	@echo "✅ Pushed to GitHub Pages"
 
-# ── Clean ──
 clean:
-	rm -rf $(PUB_DIR)/*.md $(TALK_DIR)/*.md $(PROJ_DIR)/*.md $(CV_PAGE) $(CV_PAGE_CN) $(PUB_PAGE)
-	rm -f $(CV_DIR)/Yu_Hao-CV.tex $(CV_DIR)/Yu_Hao-CV-CN.tex _data/cv.json
+	rm -f $(PUB_DIR)/*.md $(TALK_DIR)/*.md $(PROJ_DIR)/*.md $(CV_PAGE) $(CV_PAGE_CN) $(PUB_PAGE)
 
-# ── Help ──
 help:
-	@echo "Usage:"
-	@echo "  make all           Full pipeline (YAML → LaTeX → PDF → web)"
-	@echo "  make web           Web only (skip LaTeX/PDF)"
-	@echo "  make cv            Generate LaTeX .tex from YAML"
-	@echo "  make cv-pdf        Generate + compile PDF"
-	@echo "  make quick         Regenerate web from existing YAML (1s)"
-	@echo "  make migrate       One-time: extract LaTeX CV → YAML"
-	@echo "  make serve         Local Jekyll preview"
-	@echo "  make deploy        Git commit + push"
-	@echo "  make clean         Remove generated web files"
+	@echo "make quick / web   Sync CV/data and regenerate website pages"
+	@echo "make sync-data     Update committed data snapshots only"
+	@echo "make all           Generate website and compile/copy CV PDFs"
+	@echo "make cv            Generate LaTeX using the CV repository"
+	@echo "make cv-pdf        Compile and copy both CV PDFs"
+	@echo "make test          Check CV data synchronization and rendering"
+	@echo "make serve         Local Jekyll preview"
+	@echo "make clean         Remove generated website pages"
+	@echo "Override source:   make quick CV_DATA_DIR=/path/to/CV/data"

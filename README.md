@@ -11,9 +11,32 @@
 1. Edit site-wide configuration in `_config.yml` and double check that the `url` is the one that you just selected in the previous step and that `repository` reflects the correct path for your repository.
 1. Add your site content, upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.
 1. Check status by going to the repository settings, in the "GitHub pages" section
-1. Edit the YAML files in `_data/` and run `make quick` to regenerate the CV, publications, talks, and portfolio pages using `scripts/` and `templates/`.
+1. Edit the CV repository's `data/` files and run `make quick` to synchronize the data and regenerate the CV, publications, talks, and portfolio pages.
 
 See more info at https://academicpages.github.io/
+
+## 网站数据同步
+
+简历和论文内容统一维护在相邻仓库 `../CV/data/`（当前为 `/home/yu/git/CV/data`）：
+
+- `cv.yml`：简历内容，保留 `en/zh` 翻译和 `visible_in` 显示规则。
+- `publications.yml`：论文、作者、会议、资源链接和奖项。
+- `i18n.yml`：中英文固定标签。
+
+```bash
+python3 -m pip install -r requirements.txt
+make quick
+# 数据放在其他目录时：
+make quick CV_DATA_DIR=/path/to/CV/data
+```
+
+`make quick` 和 `make web` 先更新 `_data/cv.yml`、`_data/i18n.yml`、`_data/publications.yml`，再生成网站页面。这三份数据是生成快照，不要手工编辑；提交时一起提交快照和生成页面，GitHub Pages 构建不需要访问本机 CV 仓库。若找不到源目录，同步会报错并保留现有快照。
+
+`_data/publication_urls.yml` 按 CV 中稳定的论文 `id` 保存本站 URL；新论文默认使用 `id` 作为 URL。详情页统一使用带尾斜杠的地址，并保留旧 `.html` 地址的跳转。原先同名会议和期刊论文共用 URL 的情况已拆分，期刊版本使用独立 URL。论文年份优先使用显式 `year`，其次取 `id` 的年份后缀或 `venue_short` 的年份；没有年份时只使用占位日期排序，页面不显示占位年份。
+
+`_data/talks.yml` 和 `_data/projects.yml` 只维护报告日期、地点、项目介绍等网站专用信息，通过 `publication` 引用 CV 中的论文 `id`，自动取得论文标题、PDF 和代码链接。主页介绍、新闻、导航和作者侧栏仍在本站维护。
+
+`make cv` 调用 CV 仓库自己的生成器；`make cv-pdf` 编译并复制中英文 PDF 到 `files/`；`make all` 同时更新网页和 PDF。CV 仓库路径可通过 `CV_DIR=/path/to/CV` 指定。`make clean` 只清理网站生成页面。运行 `make test` 检查数据转换和语言显示规则。
 
 ### Additional Tutorials
 
