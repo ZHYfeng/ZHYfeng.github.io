@@ -5,12 +5,12 @@ publications:
   type: conference
   title: 'NeuroMerge: ML-Guided State Merging for Efficient Symbolic Execution'
   authors:
-  - Shenghan Zhng
+  - Shenghan Zheng
   - Shitong Zhu
   - Yu Hao
   - Xingyu Li
   - Keyu Man
-  - Zhang Zheng
+  - Zheng Zhang
   - Qing Deng
   - Zhiyun Qian
   - Srikanth Krishnamurthy

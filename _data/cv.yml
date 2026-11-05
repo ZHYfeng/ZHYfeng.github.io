@@ -22,9 +22,9 @@ person:
       url: https://github.com/ZHYfeng
 summary:
   en: >-
-    My research focuses on operating-system security and program analysis for C/C++ systems, with recent work on applying LLMs to security analysis and software engineering tasks. I build and evaluate tools that combine fuzzing, static analysis, symbolic execution, and LLM-based program analysis for real-world systems such as Linux, Android, and HarmonyOS kernels. My work includes LLM-assisted static analysis, automated kernel fuzzing specification generation, and exploitability/security analysis workflows. These projects have led to papers in S&P, USENIX Security, CCS, NDSS, ICSE, FSE, OOPSLA, and TSE, several open-source tools, invited talks, Linux kernel bug/CVE reports, and patches.
+    I am a security researcher on the HarmonyOS System Security Team at Huawei, where I lead memory-safety efforts for HarmonyOS. My research spans operating-system security and program analysis for C/C++ systems, combining fuzzing, static analysis, symbolic execution, and LLM-based reasoning to secure real-world kernels such as Linux, Android, and HarmonyOS. Representative work includes automated kernel fuzzing specification generation (SyzDescribe, S&P 23; SyzSpec, CCS 25 Distinguished Paper Award) and LLM-assisted static analysis (E&V; OOPSLA 24). This work has appeared in S&P, USENIX Security, CCS, NDSS, ICSE, FSE, OOPSLA, and TSE, and has produced open-source tools, invited talks, and Linux kernel bug reports and patches.
   zh: >-
-    我的研究集中在操作系统安全和C/C++程序分析，近期工作包括将大语言模型用于安全分析和软件工程任务。我构建结合Fuzzing、静态分析、符号执行和LLM推理的工具，用于Linux、Android、鸿蒙内核等真实系统。相关工作包括LLM辅助静态分析、内核Fuzzing规格自动生成、漏洞可利用性分析和系统安全分析流程。研究成果发表在S&P、USENIX Security、CCS、NDSS、ICSE、FSE、OOPSLA和TSE等会议/期刊，并产出多个开源工具、Linux内核漏洞/CVE报告及补丁，同时受邀作报告。
+    我是华为鸿蒙系统安全组的系统安全研究员，负责鸿蒙操作系统的内存安全工作。我的研究聚焦操作系统安全与C/C++程序分析，结合Fuzzing、静态分析、符号执行和大语言模型推理，保障Linux、Android、鸿蒙等真实内核的安全。代表性工作包括内核Fuzzing规格自动生成（SyzDescribe，S&P 23；SyzSpec，CCS 25杰出论文奖）和LLM辅助静态分析（E&V；OOPSLA 24）。研究成果发表于S&P、USENIX Security、CCS、NDSS、ICSE、FSE、OOPSLA和TSE等会议/期刊，并产出多个开源工具、受邀报告以及Linux内核漏洞报告和补丁。
 sections:
   education:
     entries:
@@ -90,6 +90,7 @@ sections:
           zh: 中国
           visible_in: [en]
       - id: hohhot-school
+        visible_in: [zh]
         start: '2008-09'
         end: '2011-06'
         institution:
@@ -116,6 +117,22 @@ sections:
           - text:
               en: HarmonyOS Security, Fuzzing, LLMs for Security, Static Analysis
               zh: 鸿蒙系统安全、Fuzzing、LLM辅助安全分析、静态分析
+        highlights:
+          - text:
+              en: >-
+                Lead the kernel fuzzing technical roadmap for HarmonyOS, targeting memory-safety vulnerabilities in the kernel and system components.
+              zh: >-
+                负责鸿蒙内核Fuzzing技术路线，面向内核及系统组件的内存安全漏洞挖掘。
+          - text:
+              en: >-
+                Lead the Rust technical roadmap for HarmonyOS, eliminating memory-safety bug classes in new system components.
+              zh: >-
+                负责鸿蒙操作系统Rust技术路线，在新系统组件中从根源上消除内存安全类漏洞。
+          - text:
+              en: >-
+                Apply LLMs to security analysis (AI for Security).
+              zh: >-
+                推动AI for Security，将大语言模型应用于安全分析。
       - id: microsoft-intern
         start: '2023-06'
         end: '2023-09'
@@ -133,6 +150,17 @@ sections:
           - text:
               en: LLMs for Security / Program Analysis
               zh: LLM辅助安全分析与程序分析
+        highlights:
+          - text:
+              en: >-
+                Proposed E&V, an early approach that prompts LLMs to perform static analysis by executing pseudo-code and verifying the results, reducing hallucination without extra tooling.
+              zh: >-
+                提出E&V，较早探索让大语言模型通过执行伪代码并验证结果来完成静态分析，在不依赖额外工具的情况下降低幻觉。
+          - text:
+              en: >-
+                Applied E&V to Linux kernel crash triage (locating the function to patch), achieving over 80% accuracy on 170 crashes across seven bug categories.
+              zh: >-
+                将E&V用于Linux内核崩溃分诊（定位应修补的函数），在七类漏洞的170个崩溃上准确率超过80%。
       - id: google-intern
         start: '2022-06'
         end: '2022-09'
@@ -149,6 +177,12 @@ sections:
           - text:
               en: Linux/Android Kernel Security, Fuzzing, Static Analysis
               zh: Linux/Android 内核安全、Fuzzing、静态分析
+        highlights:
+          - text:
+              en: >-
+                Used static analysis to enhance Android kernel fuzzing (internal tooling).
+              zh: >-
+                使用静态分析增强Android内核Fuzzing（内部工具）。
       - id: ucr-research
         start: '2018-09'
         end: '2024-09'
@@ -167,6 +201,33 @@ sections:
           - text:
               en: Operating System Security, LLMs for Security, Fuzzing, Symbolic Execution, Static Analysis
               zh: 操作系统安全、LLM辅助安全分析、Fuzzing、符号执行、静态分析
+            visible_in: []
+        highlights:
+          - text:
+              en: >-
+                Built the under-constrained symbolic execution and much of the static-analysis tooling behind the group's kernel security projects listed below.
+              zh: >-
+                构建了下列课题组内核安全项目中的欠约束符号执行及大部分静态分析工具。
+          - text:
+              en: >-
+                Kernel fuzzing: identified the root cause behind the “dependency challenge” (ICSE 22, Google Research Paper Reward); automated syscall specification generation via static analysis (SyzDescribe, S&P 23) and under-constrained symbolic execution (SyzSpec, CCS 25, Distinguished Paper Award); contributed ideas to dependency inference for driver fuzzing (SyzGen++, S&P 24).
+              zh: >-
+                内核Fuzzing：揭示内核Fuzzing“依赖难题”背后的根本原因（ICSE 22，Google Research Paper Rewards）；先后基于静态分析（SyzDescribe，S&P 23）和欠约束符号执行（SyzSpec，CCS 25，杰出论文奖）实现系统调用规格自动生成；为驱动Fuzzing的依赖推断提供思路（SyzGen++，S&P 24）。
+          - text:
+              en: >-
+                Bug triage & exploitability: co-designed and built the symbolic execution for accurate bisection of fuzzer-exposed vulnerabilities (SymBisect, USENIX Security 24); built the static analysis for exploitability assessment across the Linux ecosystem (SyzBridge, NDSS 24).
+              zh: >-
+                漏洞分诊与可利用性：参与设计并实现Fuzzing所发现漏洞精确二分定位中的符号执行（SymBisect，USENIX Security 24）；实现Linux生态漏洞可利用性评估中的静态分析（SyzBridge，NDSS 24）。
+          - text:
+              en: >-
+                Precise static analysis: built the under-constrained symbolic execution for Linux kernel use-before-initialization detection, eliminating about 87% of false positives (UBITect, FSE 20) and enabling incremental detection (NDSS 22).
+              zh: >-
+                精确静态分析：实现Linux内核未初始化使用漏洞检测中的欠约束符号执行，消除约87%的误报（UBITect，FSE 20），并支持增量检测（NDSS 22）。
+          - text:
+              en: >-
+                LLM-assisted program analysis: contributed the ideas and static analysis for LLM-integrated static bug detection (FSE 23, OOPSLA 24).
+              zh: >-
+                LLM辅助程序分析：为LLM与静态分析结合的漏洞检测提供思路并实现其中的静态分析（FSE 23，OOPSLA 24）。
       - id: xjtu-research
         start: '2013-06'
         end: '2018-06'
@@ -279,7 +340,7 @@ sections:
                 url: https://sos-vo.org/node/106943
       - publication: dependency-2022
         events:
-          - name: 44rd IEEE/ACM International Conference on Software Engineering, ICSE 2022
+          - name: 44th IEEE/ACM International Conference on Software Engineering, ICSE 2022
             links:
               - kind: website
                 url: https://conf.researchr.org/details/icse-2022/icse-2022-papers/89/Demystifying-the-Dependency-Challenge-in-Kernel-Fuzzing
@@ -408,7 +469,6 @@ sections:
           - venue: EAI SecureComm
             years:
               - 2023
-            separator: ', '
       - role:
           en: Sub-Reviewer
           zh: 外部审稿人

@@ -42,6 +42,7 @@ def build_context(data, labels, lang):
             'mentor': mentor.get('name', ''), 'mentor_url': mentor.get('url', ''),
             'role': labels.get(mentor.get('kind', ''), '').rstrip(':： '),
             'keywords': [item['text'] for item in entry.get('keywords', [])],
+            'highlights': [item['text'] for item in entry.get('highlights', [])],
         })
     awards = {}
     for entry in sections.get('awards', {}).get('entries', []):
@@ -90,6 +91,9 @@ redirect_from:
 
 {% for exp in experience %}
 - **{{ exp.title }}**{% if exp.mentor %}, {{ exp.role }}: {% if exp.mentor_url %}[{{ exp.mentor }}]({{ exp.mentor_url }}){% else %}{{ exp.mentor }}{% endif %}{% endif %}{% if exp.organization %}, {{ exp.organization }}{% endif %} ({{ exp.period_start.split('/')[-1] if exp.period_start and '/' in exp.period_start else exp.period_start }}&ndash;{{ exp.period_end.split('/')[-1] if exp.period_end and '/' in exp.period_end else exp.period_end }}){% if exp.keywords %}<br>  Focus: {{ exp.keywords | join(', ') }}{% endif %}
+{% for h in exp.highlights %}
+  - {{ h }}
+{% endfor %}
 {% endfor %}
 {% endif %}
 
@@ -137,6 +141,9 @@ author_profile: true
 
 {% for exp in experience %}
 - **{{ exp.title }}**{% if exp.mentor %}，{{ exp.role }}：{% if exp.mentor_url %}[{{ exp.mentor }}]({{ exp.mentor_url }}){% else %}{{ exp.mentor }}{% endif %}{% endif %}{% if exp.organization %}，{{ exp.organization }}{% endif %}（{{ exp.period_start.split('/')[-1] if exp.period_start and '/' in exp.period_start else exp.period_start }}&ndash;{{ exp.period_end.split('/')[-1] if exp.period_end and '/' in exp.period_end else exp.period_end }}）{% if exp.keywords %}<br>  关键词：{{ exp.keywords | join('、') }}{% endif %}
+{% for h in exp.highlights %}
+  - {{ h }}
+{% endfor %}
 {% endfor %}
 {% endif %}
 

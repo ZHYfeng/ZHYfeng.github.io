@@ -14,10 +14,10 @@ venue: >-
 paperurl: >-
 
 citation: >-
-  Shenghan Zhng, Shitong Zhu, Yu Hao, Xingyu Li, Keyu Man, Zhang Zheng, Qing Deng, Zhiyun Qian, Srikanth Krishnamurthy. "NeuroMerge: ML-Guided State Merging for Efficient Symbolic Execution." <i>IEEE International Symposium on Software Reliability Engineering, ISSRE 26.</i> (2026).
+  Shenghan Zheng, Shitong Zhu, Yu Hao, Xingyu Li, Keyu Man, Zheng Zhang, Qing Deng, Zhiyun Qian, Srikanth Krishnamurthy. "NeuroMerge: ML-Guided State Merging for Efficient Symbolic Execution." <i>IEEE International Symposium on Software Reliability Engineering, ISSRE 26.</i> (2026).
 ---
 
-**Authors:** Shenghan Zhng, Shitong Zhu, Yu Hao, Xingyu Li, Keyu Man, Zhang Zheng, Qing Deng, Zhiyun Qian, Srikanth Krishnamurthy
+**Authors:** Shenghan Zheng, Shitong Zhu, Yu Hao, Xingyu Li, Keyu Man, Zheng Zhang, Qing Deng, Zhiyun Qian, Srikanth Krishnamurthy
 
 **Venue:** IEEE International Symposium on Software Reliability Engineering, ISSRE 26.
 

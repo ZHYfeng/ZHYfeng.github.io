@@ -15,7 +15,7 @@ redirect_from:
 
 <div class="pub-card" markdown="1">
 [**NeuroMerge: ML-Guided State Merging for Efficient Symbolic Execution**](/publication/neuromerge-ml-guided-state-merging-for-efficient-symbolic-execution/)<br>
-Shenghan Zhng, Shitong Zhu, **Yu Hao**, Xingyu Li, Keyu Man, Zhang Zheng, Qing Deng, Zhiyun Qian, Srikanth Krishnamurthy
+Shenghan Zheng, Shitong Zhu, **Yu Hao**, Xingyu Li, Keyu Man, Zheng Zhang, Qing Deng, Zhiyun Qian, Srikanth Krishnamurthy
 *IEEE International Symposium on Software Reliability Engineering, ISSRE 26.*
 
 
