@@ -1,0 +1,25 @@
+{% comment %}
+One publication entry, shared by the homepage, the publications list and each
+publication page. Parameters: pub (required), full (all links), notitle.
+{% endcomment %}
+{% include base_path %}
+{% assign pub = include.pub %}
+<li>
+  <span>{% if pub.venue_short != "" %}<span class="tag">{{ pub.venue_short }}</span>{% endif %}</span>
+  <div>
+    {% unless include.notitle %}<h3><a href="{{ base_path }}/publication/{{ site.data.publication_urls[pub.id] }}/">{{ pub.title }}</a></h3>{% endunless %}
+    <p>{{ pub.authors | join: ", " | replace: "Yu Hao", "<strong>Yu Hao</strong>" }}{% for a in pub.awards %} <span class="tag tag--award">{{ a }}</span>{% endfor %}{% for t in pub.talks %} <span class="tag tag--talk">{{ t }}</span>{% endfor %}</p>
+    {% if include.full %}<p class="venue">{{ pub.venue }}</p>{% endif %}
+    <p class="links">
+      {% if pub.pdf %}<a href="{{ pub.pdf }}">pdf</a>{% endif %}
+      {% for g in pub.github %}<a href="{{ g[1] }}">{{ g[0] }}</a>{% endfor %}
+      {% if include.full %}
+      {% for url in pub.links %}<a href="{{ url }}">paper</a>{% endfor %}
+      {% for l in pub.related_links %}<a href="{{ l.url }}">{{ l.text }}</a>{% endfor %}
+      {% if pub.website %}<a href="{{ pub.website }}">website</a>{% endif %}
+      {% if pub.slides %}<a href="{{ pub.slides }}">slides</a>{% endif %}
+      {% if pub.youtube %}<a href="{{ pub.youtube }}">video</a>{% endif %}
+      {% endif %}
+    </p>
+  </div>
+</li>

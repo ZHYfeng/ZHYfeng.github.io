@@ -1,0 +1,22 @@
+---
+layout: default
+---
+{% include base_path %}
+{% assign pub = site.data.publications.publications | where: "id", page.pub_id | first %}
+<div id="main" role="main">
+  {% include sidebar.html %}
+  <article class="page" itemscope itemtype="http://schema.org/ScholarlyArticle">
+    <div class="page__inner-wrap">
+      <header>
+        <h1 class="page__title" itemprop="headline">{{ page.title }}</h1>
+      </header>
+      <section class="page__content" itemprop="text">
+        <ol class="publist publist--single">
+          {% include pub-entry.html pub=pub full=true notitle=true %}
+        </ol>
+        {{ content }}
+        {% if page.citation %}<p class="citation">{{ page.citation }}</p>{% endif %}
+      </section>
+    </div>
+  </article>
+</div>

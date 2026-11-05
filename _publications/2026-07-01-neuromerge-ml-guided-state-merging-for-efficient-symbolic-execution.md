@@ -1,6 +1,8 @@
 ---
 title: >-
   NeuroMerge: ML-Guided State Merging for Efficient Symbolic Execution
+layout: publication
+pub_id: neuromerge-2026
 collection: publications
 category: conferences
 permalink: /publication/neuromerge-ml-guided-state-merging-for-efficient-symbolic-execution/
@@ -17,8 +19,3 @@ citation: >-
   Shenghan Zheng, Shitong Zhu, Yu Hao, Xingyu Li, Keyu Man, Zheng Zhang, Qing Deng, Zhiyun Qian, Srikanth Krishnamurthy. "NeuroMerge: ML-Guided State Merging for Efficient Symbolic Execution." <i>IEEE International Symposium on Software Reliability Engineering, ISSRE 26.</i> (2026).
 ---
 
-**Authors:** Shenghan Zheng, Shitong Zhu, Yu Hao, Xingyu Li, Keyu Man, Zheng Zhang, Qing Deng, Zhiyun Qian, Srikanth Krishnamurthy
-
-**Venue:** IEEE International Symposium on Software Reliability Engineering, ISSRE 26.
-
-**Year:** 2026

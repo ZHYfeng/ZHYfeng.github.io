@@ -9,7 +9,6 @@ PUBS_YML = _data/publications.yml
 I18N_YML = _data/i18n.yml
 CV_PAGE = _pages/cv.md
 CV_PAGE_CN = _pages/cv-cn.md
-PUB_PAGE = _pages/publications.md
 PUB_DIR = _publications
 TALK_DIR = _talks
 PROJ_DIR = _portfolio
@@ -30,16 +29,13 @@ sync-web-pages: sync-data
 sync-data:
 	$(PYTHON) scripts/sync_cv_data.py --data-dir "$(CV_DATA_DIR)"
 
-generated-web: $(CV_PAGE) $(CV_PAGE_CN) $(PUB_PAGE) sync-pub-pages sync-talks sync-projects
+generated-web: $(CV_PAGE) $(CV_PAGE_CN) sync-pub-pages sync-talks sync-projects
 
 $(CV_PAGE): $(CV_YML) $(I18N_YML) scripts/generate_cv_md.py $(SHARED_DATA)
 	$(PYTHON) scripts/generate_cv_md.py --data $(CV_YML) --lang en --output $@
 
 $(CV_PAGE_CN): $(CV_YML) $(I18N_YML) scripts/generate_cv_md.py $(SHARED_DATA)
 	$(PYTHON) scripts/generate_cv_md.py --data $(CV_YML) --lang cn --output $@
-
-$(PUB_PAGE): $(PUBS_YML) $(TEMPLATE_DIR)/publications.md.j2 scripts/generate_pub_list.py
-	$(PYTHON) scripts/generate_pub_list.py --data $(PUBS_YML) --template $(TEMPLATE_DIR)/publications.md.j2 --output $@
 
 sync-pub-pages: $(PUBS_YML) scripts/generate_pub_pages.py
 	$(PYTHON) scripts/generate_pub_pages.py --data $(PUBS_YML) --output-dir $(PUB_DIR)
@@ -72,7 +68,7 @@ deploy:
 	git commit -m "$$msg" && git push
 
 clean:
-	rm -f $(PUB_DIR)/*.md $(TALK_DIR)/*.md $(PROJ_DIR)/*.md $(CV_PAGE) $(CV_PAGE_CN) $(PUB_PAGE)
+	rm -f $(PUB_DIR)/*.md $(TALK_DIR)/*.md $(PROJ_DIR)/*.md $(CV_PAGE) $(CV_PAGE_CN)
 
 help:
 	@echo "make quick / web   Sync CV/data and regenerate website pages"

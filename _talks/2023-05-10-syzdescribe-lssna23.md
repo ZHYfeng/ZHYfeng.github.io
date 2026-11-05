@@ -11,9 +11,7 @@ excerpt: "Pioneers principled static analysis to automatically generate syscall 
 
 Pioneers principled static analysis to automatically generate syscall descriptions for Linux kernel drivers, enabling targeted driver fuzzing.
 
-**Title:** SyzDescribe: Principled, Automated, Static Generation of Syscall Descriptions for Kernel Drivers
-**Venue:** Linux Security Summit North America (LSS-NA 2023)
+**Venue:** Linux Security Summit North America (LSS-NA 2023)  
 **Location:** Vancouver, Canada
-
 
 [View Paper](http://zhyfeng.github.io/files/oakland23_syzdescribe.pdf)

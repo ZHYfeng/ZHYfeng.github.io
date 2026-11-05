@@ -1,6 +1,8 @@
 ---
 title: >-
   Enhancing Static Analysis for Practical Bug Detection: An LLM-Integrated Approach
+layout: publication
+pub_id: llift-2024
 collection: publications
 category: conferences
 permalink: /publication/enhancing-static-analysis-for-practical-bug-detection-an-llm-integrated-approach/
@@ -17,10 +19,3 @@ citation: >-
   Haonan Li, Yu Hao, Yizhuo Zhai, Zhiyun Qian. "Enhancing Static Analysis for Practical Bug Detection: An LLM-Integrated Approach." <i>ACM SIGPLAN International Conference on Object-Oriented Programming Systems, Languages, and Applications, OOPSLA 24.</i> (2024).
 ---
 
-**Authors:** Haonan Li, Yu Hao, Yizhuo Zhai, Zhiyun Qian
-
-**Venue:** ACM SIGPLAN International Conference on Object-Oriented Programming Systems, Languages, and Applications, OOPSLA 24.
-
-**Year:** 2024
-
-[📄 PDF](http://zhyfeng.github.io/files/oopsla24_llift.pdf) | [🐙 Tool](https://github.com/seclab-ucr/LLift) | [🔗 Publisher](https://dl.acm.org/doi/10.1145/3649828)

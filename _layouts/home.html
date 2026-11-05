@@ -53,16 +53,7 @@ layout: default
         <h2>Selected publications</h2>
         <div>
           <ol class="publist">
-            {% for pub in selected_pubs %}
-            <li>
-              <span>{% if pub.venue_short != "" %}<span class="tag">{{ pub.venue_short }}</span>{% endif %}</span>
-              <div>
-                <h3><a href="{{ base_path }}/publication/{{ site.data.publication_urls[pub.id] }}/">{{ pub.title }}</a></h3>
-                <p>{{ pub.authors | join: ", " | replace: "Yu Hao", "<strong>Yu Hao</strong>" }}{% for a in pub.awards %} <span class="tag tag--award">{{ a }}</span>{% endfor %}{% for t in pub.talks %} <span class="tag tag--talk">{{ t }}</span>{% endfor %}</p>
-                <p class="links">{% if pub.pdf %}<a href="{{ pub.pdf }}">pdf</a>{% endif %}{% for g in pub.github %}<a href="{{ g[1] }}">{{ g[0] }}</a>{% endfor %}</p>
-              </div>
-            </li>
-            {% endfor %}
+            {% for pub in selected_pubs %}{% include pub-entry.html pub=pub %}{% endfor %}
           </ol>
           <p class="more"><a class="link" href="{{ base_path }}/publications/">all {{ pubs.size }} publications →</a></p>
         </div>

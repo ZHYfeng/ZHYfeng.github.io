@@ -11,9 +11,7 @@ excerpt: "Systematically studies the dependency challenge in kernel fuzzing — 
 
 Systematically studies the dependency challenge in kernel fuzzing — code locked behind kernel states that fuzzers struggle to reach.
 
-**Title:** Demystifying the Dependency Challenge in Kernel Fuzzing
-**Venue:** IEEE/ACM International Conference on Software Engineering (ICSE 2022)
+**Venue:** IEEE/ACM International Conference on Software Engineering (ICSE 2022)  
 **Location:** Pittsburgh, PA, USA
-
 
 [View Paper](http://zhyfeng.github.io/files/icse22_dependency_measurement.pdf)

@@ -11,9 +11,7 @@ excerpt: "Presents E&V, a novel approach that prompts LLMs to perform static ana
 
 Presents E&V, a novel approach that prompts LLMs to perform static analysis via pseudo-code execution and verification.
 
-**Title:** E&V: Prompting Large Language Models to Perform Static Analysis by Pseudo-code Execution and Verification
-**Venue:** AGI Leap Summit 2024
+**Venue:** AGI Leap Summit 2024  
 **Location:** Online
-
 
 [View Paper](https://arxiv.org/abs/2312.08477)

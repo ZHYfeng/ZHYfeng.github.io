@@ -1,6 +1,8 @@
 ---
 title: >-
   Debugging Multithreaded Programs as if They Were Sequential
+layout: publication
+pub_id: sequential-access
 collection: publications
 category: manuscripts
 permalink: /publication/debugging-multithreaded-programs-as-if-they-were-sequential-access/
@@ -17,8 +19,3 @@ citation: >-
   Xiaodong Zhang, Zijiang Yang, Qinghua Zheng, Yu Hao, Pei Liu, Lechen Yu, Ting Liu. "Debugging Multithreaded Programs as if They Were Sequential." <i>IEEE Access.</i>
 ---
 
-**Authors:** Xiaodong Zhang, Zijiang Yang, Qinghua Zheng, Yu Hao, Pei Liu, Lechen Yu, Ting Liu
-
-**Venue:** IEEE Access.
-
-[🐙 Tool](https://github.com/ZHYfeng/Cap_6) | [🔗 Publisher](https://ieeexplore.ieee.org/document/8357815)

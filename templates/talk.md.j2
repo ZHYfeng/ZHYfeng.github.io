@@ -11,9 +11,8 @@ excerpt: "{{ talk.excerpt }}"
 
 {{ talk.excerpt }}
 
-**Title:** {{ talk.title }}
-**Venue:** {{ talk.venue }}
-**Location:** {{ talk.location }}
-{% if talk.award %}**🏆 {{ talk.award }}**{% endif %}
+**Venue:** {{ talk.venue }}  
+**Location:** {{ talk.location }}{% if talk.award %}  
+**Award:** {{ talk.award }}{% endif %}
 
 [View Paper]({{ talk.paper }}){% if talk.slides %} | [Slides]({{ talk.slides }}){% endif %}{% if talk.video %} | [Video]({{ talk.video }}){% endif %}
