@@ -77,7 +77,6 @@ h1, h2, h3, h4 {
   white-space: nowrap;
 }
 .tag--award { border-color: var(--accent); color: var(--accent); }
-.tag--talk { border-style: dashed; color: var(--muted); }
 
 .textlinks {
   list-style: none;
@@ -435,6 +434,10 @@ h1, h2, h3, h4 {
     color: var(--muted);
   }
 
+  .awards {
+    margin-top: 0.35rem;
+  }
+
   .venue {
     font-style: italic;
   }
@@ -442,8 +445,12 @@ h1, h2, h3, h4 {
   .links {
     @extend %mono-label;
 
-    a {
+    a,
+    span {
       margin-right: 1rem;
+    }
+
+    a {
       color: var(--accent);
     }
   }
