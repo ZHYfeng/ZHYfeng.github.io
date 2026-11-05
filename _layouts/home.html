@@ -1,0 +1,82 @@
+---
+layout: default
+---
+{% include base_path %}
+{% assign author = site.author %}
+<main class="home" role="main">
+  <section class="home__hero" id="top">
+    <div class="wrap">
+      <div class="hero__text">
+        <p class="kicker">{{ page.kicker }}</p>
+        <h1>{{ page.name_en }} <span class="hero__zh">{{ page.name_zh }}</span></h1>
+        <p class="lead">{{ page.lead }}</p>
+        <p class="fact">{{ page.fact }}</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="{{ base_path }}/publications/">Read publications</a>
+          <a class="btn btn--outline" href="{{ base_path }}/files/cv.pdf">Download CV</a>
+        </div>
+        <ul class="profiles">
+          <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i>Email</a></li>
+          <li><a href="{{ author.googlescholar }}"><i class="fas fa-fw fa-graduation-cap" aria-hidden="true"></i>Google Scholar</a></li>
+          <li><a href="https://dblp.org/pid/33/3270-6.html"><i class="fas fa-fw fa-book" aria-hidden="true"></i>DBLP</a></li>
+          <li><a href="https://github.com/{{ author.github }}"><i class="fab fa-fw fa-github" aria-hidden="true"></i>GitHub</a></li>
+          <li><a href="https://orcid.org/{{ author.orcid }}"><i class="fab fa-fw fa-orcid" aria-hidden="true"></i>ORCID</a></li>
+          <li><a href="https://www.linkedin.com/in/{{ author.linkedin }}"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="hero__photo">
+        <img src="{{ base_path }}/images/{{ author.avatar }}" alt="{{ page.name_en }}" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <section class="home__section" id="research">
+    <div class="wrap">
+      <h2>Research</h2>
+      <div class="cards">
+        {% for r in page.research %}
+        <a class="card" href="{{ base_path }}/publication/{{ site.data.publication_urls[r.publication] }}/">
+          <h3>{{ r.title }}</h3>
+          <p>{{ r.text }}</p>
+          <span class="card__more">{{ r.more }} <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+        {% endfor %}
+      </div>
+      <p class="note">{{ page.note }}</p>
+    </div>
+  </section>
+
+  <section class="home__section" id="publications">
+    <div class="wrap">
+      <h2>Selected publications</h2>
+      <div class="pubs">
+        {% for pub in site.data.publications.publications %}
+        {% if page.selected contains pub.id %}
+        <article class="card pub">
+          <p class="pub__meta">
+            {% if pub.venue_short != "" %}<span class="pub__venue">{{ pub.venue_short }}</span>{% endif %}
+            {% for a in pub.awards %}<span class="pub__award"><i class="fas fa-award" aria-hidden="true"></i>{{ a }}</span>{% endfor %}
+          </p>
+          <h3><a href="{{ base_path }}/publication/{{ site.data.publication_urls[pub.id] }}/">{{ pub.title }}</a></h3>
+          <p class="pub__authors">{{ pub.authors | join: ", " | replace: "Yu Hao", "<strong>Yu Hao</strong>" }}</p>
+          <p class="pub__links">
+            {% if pub.pdf %}<a href="{{ pub.pdf }}">PDF</a>{% endif %}
+            {% for g in pub.github %}<a href="{{ g[1] }}">{{ g[0] }}</a>{% endfor %}
+          </p>
+        </article>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <p class="more"><a class="link" href="{{ base_path }}/publications/">All {{ site.data.publications.publications | size }} publications</a></p>
+    </div>
+  </section>
+
+  <section class="home__section" id="news">
+    <div class="wrap">
+      <h2>News</h2>
+      <div class="news">
+        {{ content }}
+      </div>
+    </div>
+  </section>
+</main>
