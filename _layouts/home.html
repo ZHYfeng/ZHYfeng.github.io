@@ -13,24 +13,7 @@ layout: default
 {% assign selected_pubs = pubs | where_exp: "p", "page.selected contains p.id" %}
 <main class="home" role="main">
   <div class="wrap home__grid">
-    <aside class="home__rail">
-      <img src="{{ base_path }}/images/{{ author.avatar }}" alt="{{ page.name_en }}" fetchpriority="high">
-      <div class="home__mark"><span class="zh">{{ page.name_zh }}</span><span class="en">{{ page.name_en }}</span></div>
-      <ul class="home__toc">
-        <li><span class="num">1</span><a href="#research">research</a></li>
-        <li><span class="num">2</span><a href="#publications">publications</a></li>
-        <li><span class="num">3</span><a href="#news">news</a></li>
-        <li><span class="num">4</span><a href="{{ base_path }}/files/cv.pdf">cv.pdf</a></li>
-      </ul>
-      <ul class="textlinks">
-        <li><a href="mailto:{{ author.email }}">Email</a></li>
-        <li><a href="{{ author.googlescholar }}">Google Scholar</a></li>
-        <li><a href="https://dblp.org/pid/33/3270-6.html">DBLP</a></li>
-        <li><a href="https://github.com/{{ author.github }}">GitHub</a></li>
-        <li><a href="https://orcid.org/{{ author.orcid }}">ORCID</a></li>
-        <li><a href="https://www.linkedin.com/in/{{ author.linkedin }}">LinkedIn</a></li>
-      </ul>
-    </aside>
+    {% include rail.html %}
 
     <div class="home__body">
       <section class="home__sec home__sec--first">
@@ -72,7 +55,7 @@ layout: default
           <ol class="publist">
             {% for pub in selected_pubs %}
             <li>
-              <span class="tag">{{ pub.venue_short }}</span>
+              <span>{% if pub.venue_short != "" %}<span class="tag">{{ pub.venue_short }}</span>{% endif %}</span>
               <div>
                 <h3><a href="{{ base_path }}/publication/{{ site.data.publication_urls[pub.id] }}/">{{ pub.title }}</a></h3>
                 <p>{{ pub.authors | join: ", " | replace: "Yu Hao", "<strong>Yu Hao</strong>" }}{% for a in pub.awards %} <span class="tag tag--award">{{ a }}</span>{% endfor %}{% for t in pub.talks %} <span class="tag tag--talk">{{ t }}</span>{% endfor %}</p>

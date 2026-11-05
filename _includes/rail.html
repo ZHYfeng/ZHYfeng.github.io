@@ -1,0 +1,25 @@
+{% include base_path %}
+{% assign author = site.author %}
+{% assign names = author.name | split: " / " %}
+<aside class="rail">
+  <img src="{{ base_path }}/images/{{ author.avatar }}" alt="{{ names[0] }}" fetchpriority="high">
+  <div class="rail__mark"><span class="zh">{{ names[1] }}</span><span class="en">{{ names[0] }}</span></div>
+  {% if page.toc %}
+  <ul class="rail__toc">
+    {% for item in page.toc %}
+    <li><span class="num">{{ forloop.index }}</span><a href="{% unless item.url contains '#' %}{{ base_path }}{% endunless %}{{ item.url }}">{{ item.text }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  <ul class="textlinks">
+    <li><a href="mailto:{{ author.email }}">Email</a></li>
+    <li><a href="{{ author.googlescholar }}">Google Scholar</a></li>
+    <li><a href="https://dblp.org/pid/33/3270-6.html">DBLP</a></li>
+    <li><a href="https://github.com/{{ author.github }}">GitHub</a></li>
+    <li><a href="https://orcid.org/{{ author.orcid }}">ORCID</a></li>
+    <li><a href="https://www.linkedin.com/in/{{ author.linkedin }}">LinkedIn</a></li>
+    {% if author.twitter %}<li><a href="https://twitter.com/{{ author.twitter }}">X</a></li>{% endif %}
+    {% if author.weibo %}<li><a href="https://www.weibo.com/{{ author.weibo }}">Weibo</a></li>{% endif %}
+    {% if author.steam %}<li><a href="https://steamcommunity.com/profiles/{{ author.steam }}">Steam</a></li>{% endif %}
+  </ul>
+</aside>

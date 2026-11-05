@@ -14,6 +14,11 @@ lead: >-
   combining fuzzing, static analysis, symbolic execution and LLM-based reasoning
   to find and fix memory-safety bugs in real kernels: Linux, Android and HarmonyOS.
 education: Ph.D., UC Riverside, 2024
+toc:
+  - { text: research, url: "#research" }
+  - { text: publications, url: "#publications" }
+  - { text: news, url: "#news" }
+  - { text: cv.pdf, url: /files/cv.pdf }
 # Venues shown on the homepage, in this order; conferences not listed are omitted.
 venues: [S&P, CCS, USENIX Security, NDSS, ICSE, FSE, OOPSLA]
 note: >-
