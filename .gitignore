@@ -23,3 +23,8 @@ package-lock.json
 .DS_Store
 __pycache__/
 .venv/
+
+# Local agent skill kits
+.agents/
+.claude/
+skills-lock.json
