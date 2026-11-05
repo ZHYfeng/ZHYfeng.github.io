@@ -46,7 +46,7 @@ Keyu Man, Zhongjie Wang, **Yu Hao**, Shenghan Zheng, Xin'an Zhou, Yue Cao, Zhiyu
 Zheng Zhang, **Yu Hao**, Weiteng Chen, Xiaochen Zou, Xingyu Li, Haonan Li, Yizhuo Zhai, Zhiyun Qian, Billy Lau
 *USENIX Security Symposium 2024.*
 [PDF](http://zhyfeng.github.io/files/sec24_symbisect.pdf) [Paper](https://www.usenix.org/conference/usenixsecurity24/presentation/zhang-zheng) [Tool](https://github.com/seclab-ucr/SyzBridge)
-**Linux Security Summit 25**
+*Linux Security Summit 25*
 
 
 </div>
@@ -119,7 +119,7 @@ Haonan Li, **Yu Hao**, Yizhuo Zhai, Zhiyun Qian
 Yizhuo Zhai, **Yu Hao**, Zheng Zhang, Weiteng Chen, Guoren Li, Zhiyun Qian, Chengyu Song, Manu Sridharan, Srikanth V. Krishnamurthy, Trent Jaeger, Paul Yu
 *Network and Distributed System Security Symposium, NDSS 22.*
 [PDF](http://zhyfeng.github.io/files/ndss22_incremental_analysis.pdf) [Paper](https://www.ndss-symposium.org/ndss-paper/auto-draft-249/) [Tool](https://github.com/seclab-ucr/IncreLux)
-**2023 Cyber Security CRA Capstone Poster**
+*2023 Cyber Security CRA Capstone Poster*
 
 
 </div>
@@ -156,7 +156,7 @@ Hang Zhang, Weiteng Chen, **Yu Hao**, Guoren Li, Yizhuo Zhai, Xiaochen Zou, Zhiy
 Yizhuo Zhai, **Yu Hao**, Hang Zhang, Daimeng Wang, Chengyu Song, Zhiyun Qian, Mohsen Lesani, Srikanth V. Krishnamurthy, Paul Yu
 *ACM SIGSOFT International Symposium on Foundations of Software Engineering, FSE 20.*
 [PDF](http://zhyfeng.github.io/files/fse20_UBITect.pdf) [Paper](https://dl.acm.org/doi/10.1145/3368089.3409686) [Tool](https://github.com/seclab-ucr/UBITect)
-**2023 Cyber Security CRA Capstone Poster**
+*2023 Cyber Security CRA Capstone Poster*
 
 
 </div>

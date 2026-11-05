@@ -82,6 +82,7 @@ def normalize_publications(source, urls):
             'links': [],
             'related_links': [],
             'awards': [],
+            'talks': [],
         }
         kinds = {'pdf': 'pdf', 'website': 'website',
                  'slides': 'slides', 'video': 'youtube'}
@@ -100,7 +101,9 @@ def normalize_publications(source, urls):
                 if item.get('url'):
                     result['related_links'].append({'text': item.get('text', 'Link'), 'url': item['url']})
                 elif item.get('text'):
-                    result['awards'].append(item['text'])
+                    # Text-only annotations are awards unless the CV marks them as talks.
+                    key = 'talks' if item.get('kind') == 'talk' else 'awards'
+                    result[key].append(item['text'])
         publications.append(result)
     return {'publications': publications}
 

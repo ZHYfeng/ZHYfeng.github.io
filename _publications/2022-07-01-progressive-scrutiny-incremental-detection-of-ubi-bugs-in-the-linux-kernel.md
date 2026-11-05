@@ -25,5 +25,5 @@ citation: >-
 
 [📄 PDF](http://zhyfeng.github.io/files/ndss22_incremental_analysis.pdf) | [🐙 Tool](https://github.com/seclab-ucr/IncreLux) | [🔗 Publisher](https://www.ndss-symposium.org/ndss-paper/auto-draft-249/)
 
-**Awards & Recognitions:**<br>
-🏆 2023 Cyber Security CRA Capstone Poster
+**Presented at:**<br>
+🎤 2023 Cyber Security CRA Capstone Poster

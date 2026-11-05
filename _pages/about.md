@@ -13,7 +13,9 @@ lead: >-
   I work on operating-system security and program analysis for C/C++ systems,
   combining fuzzing, static analysis, symbolic execution and LLM-based reasoning
   to find and fix memory-safety bugs in real kernels: Linux, Android and HarmonyOS.
-fact: "Ph.D., UC Riverside, 2024 · CCS 2025 Distinguished Paper Award · Laxmi Bhuyan Fellowship 2024"
+education: Ph.D., UC Riverside, 2024
+# Venues shown on the homepage, in this order; conferences not listed are omitted.
+venues: [S&P, CCS, USENIX Security, NDSS, ICSE, FSE, OOPSLA]
 note: >-
   I am open to collaboration with researchers and industry partners in operating
   system security, and I am hiring interns and full-time researchers.

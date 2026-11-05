@@ -90,6 +90,7 @@ class CVDataTests(unittest.TestCase):
             {'kind': 'pub', 'url': 'https://example.org/paper'},
         ], annotations=[{'items': [
             {'text': 'Paper Award', 'red': True},
+            {'kind': 'talk', 'text': 'Summit Talk'},
             {'kind': 'named', 'text': 'Invited Event', 'url': 'https://example.org/event'},
         ]}])
         result = normalize_publications({'publications': [pub]},
@@ -101,6 +102,9 @@ class CVDataTests(unittest.TestCase):
         self.assertIn('[📄 PDF](https://example.org/paper.pdf)', page)
         self.assertIn('[🐙 Tool](https://github.com/example/tool)', page)
         self.assertIn('Paper Award', page)
+        self.assertEqual(result['awards'], ['Paper Award'])
+        self.assertEqual(result['talks'], ['Summit Talk'])
+        self.assertIn('🎤 Summit Talk', page)
         self.assertIn('[🔗 Invited Event](https://example.org/event)', page)
         self.assertEqual(page.count('[🔗 Publisher]'), 1)
         self.assertEqual(result['year'], 2025)

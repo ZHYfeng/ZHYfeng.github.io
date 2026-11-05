@@ -3,80 +3,92 @@ layout: default
 ---
 {% include base_path %}
 {% assign author = site.author %}
+{% assign pubs = site.data.publications.publications %}
+{% assign conference_pubs = pubs | where: "type", "conference" %}
+{% assign years = pubs | where_exp: "p", "p.year" | map: "year" | sort %}
+{% assign award_list = "" | split: "" %}
+{% for p in pubs %}{% for a in p.awards %}{% assign item = a | append: " (" | append: p.venue_short | append: ")" %}{% assign award_list = award_list | push: item %}{% endfor %}{% endfor %}
+{% assign venues = "" | split: "" %}
+{% for v in page.venues %}{% for p in conference_pubs %}{% if p.venue_short contains v %}{% assign venues = venues | push: v %}{% break %}{% endif %}{% endfor %}{% endfor %}
+{% assign selected_pubs = pubs | where_exp: "p", "page.selected contains p.id" %}
 <main class="home" role="main">
-  <section class="home__hero" id="top">
-    <div class="wrap">
-      <div class="hero__text">
-        <p class="kicker">{{ page.kicker }}</p>
-        <h1>{{ page.name_en }} <span class="hero__zh">{{ page.name_zh }}</span></h1>
+  <div class="wrap home__grid">
+    <aside class="home__rail">
+      <img src="{{ base_path }}/images/{{ author.avatar }}" alt="{{ page.name_en }}" fetchpriority="high">
+      <div class="home__mark"><span class="zh">{{ page.name_zh }}</span><span class="en">{{ page.name_en }}</span></div>
+      <ul class="home__toc">
+        <li><span class="num">1</span><a href="#research">research</a></li>
+        <li><span class="num">2</span><a href="#publications">publications</a></li>
+        <li><span class="num">3</span><a href="#news">news</a></li>
+        <li><span class="num">4</span><a href="{{ base_path }}/files/cv.pdf">cv.pdf</a></li>
+      </ul>
+      <ul class="textlinks">
+        <li><a href="mailto:{{ author.email }}">Email</a></li>
+        <li><a href="{{ author.googlescholar }}">Google Scholar</a></li>
+        <li><a href="https://dblp.org/pid/33/3270-6.html">DBLP</a></li>
+        <li><a href="https://github.com/{{ author.github }}">GitHub</a></li>
+        <li><a href="https://orcid.org/{{ author.orcid }}">ORCID</a></li>
+        <li><a href="https://www.linkedin.com/in/{{ author.linkedin }}">LinkedIn</a></li>
+      </ul>
+    </aside>
+
+    <div class="home__body">
+      <section class="home__sec home__sec--first">
+        <h2>Name</h2>
+        <p class="home__name">{{ page.name_en }} <span class="muted">· {{ page.kicker }}</span></p>
+      </section>
+
+      <section class="home__sec">
+        <h2>Description</h2>
         <p class="lead">{{ page.lead }}</p>
-        <p class="fact">{{ page.fact }}</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="{{ base_path }}/publications/">Read publications</a>
-          <a class="btn btn--outline" href="{{ base_path }}/files/cv.pdf">Download CV</a>
+      </section>
+
+      <section class="home__sec">
+        <h2>Facts</h2>
+        <dl class="facts">
+          <dt>publications</dt><dd>{{ pubs.size }} ({{ conference_pubs.size }} conference), {{ years | first }}–{{ years | last }}</dd>
+          <dt>venues</dt><dd>{{ venues | join: " · " | escape }}</dd>
+          <dt>paper awards</dt><dd>{{ award_list.size }} · {{ award_list | join: ", " }}</dd>
+          <dt>education</dt><dd>{{ page.education }}</dd>
+        </dl>
+      </section>
+
+      <section class="home__sec" id="research">
+        <h2>Research</h2>
+        <div>
+          <dl class="research">
+            {% for r in page.research %}
+            <dt>{{ r.title }}</dt>
+            <dd>{{ r.text }} <a class="more" href="{{ base_path }}/publication/{{ site.data.publication_urls[r.publication] }}/">{{ r.more }} →</a></dd>
+            {% endfor %}
+          </dl>
+          <p class="note">{{ page.note }}</p>
         </div>
-        <ul class="profiles">
-          <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i>Email</a></li>
-          <li><a href="{{ author.googlescholar }}"><i class="fas fa-fw fa-graduation-cap" aria-hidden="true"></i>Google Scholar</a></li>
-          <li><a href="https://dblp.org/pid/33/3270-6.html"><i class="fas fa-fw fa-book" aria-hidden="true"></i>DBLP</a></li>
-          <li><a href="https://github.com/{{ author.github }}"><i class="fab fa-fw fa-github" aria-hidden="true"></i>GitHub</a></li>
-          <li><a href="https://orcid.org/{{ author.orcid }}"><i class="fab fa-fw fa-orcid" aria-hidden="true"></i>ORCID</a></li>
-          <li><a href="https://www.linkedin.com/in/{{ author.linkedin }}"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>LinkedIn</a></li>
-        </ul>
-      </div>
-      <div class="hero__photo">
-        <img src="{{ base_path }}/images/{{ author.avatar }}" alt="{{ page.name_en }}" fetchpriority="high">
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <section class="home__section" id="research">
-    <div class="wrap">
-      <h2>Research</h2>
-      <div class="cards">
-        {% for r in page.research %}
-        <a class="card" href="{{ base_path }}/publication/{{ site.data.publication_urls[r.publication] }}/">
-          <h3>{{ r.title }}</h3>
-          <p>{{ r.text }}</p>
-          <span class="card__more">{{ r.more }} <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-        </a>
-        {% endfor %}
-      </div>
-      <p class="note">{{ page.note }}</p>
-    </div>
-  </section>
+      <section class="home__sec" id="publications">
+        <h2>Selected publications</h2>
+        <div>
+          <ol class="publist">
+            {% for pub in selected_pubs %}
+            <li>
+              <span class="tag">{{ pub.venue_short }}</span>
+              <div>
+                <h3><a href="{{ base_path }}/publication/{{ site.data.publication_urls[pub.id] }}/">{{ pub.title }}</a></h3>
+                <p>{{ pub.authors | join: ", " | replace: "Yu Hao", "<strong>Yu Hao</strong>" }}{% for a in pub.awards %} <span class="tag tag--award">{{ a }}</span>{% endfor %}{% for t in pub.talks %} <span class="tag tag--talk">{{ t }}</span>{% endfor %}</p>
+                <p class="links">{% if pub.pdf %}<a href="{{ pub.pdf }}">pdf</a>{% endif %}{% for g in pub.github %}<a href="{{ g[1] }}">{{ g[0] }}</a>{% endfor %}</p>
+              </div>
+            </li>
+            {% endfor %}
+          </ol>
+          <p class="more"><a class="link" href="{{ base_path }}/publications/">all {{ pubs.size }} publications →</a></p>
+        </div>
+      </section>
 
-  <section class="home__section" id="publications">
-    <div class="wrap">
-      <h2>Selected publications</h2>
-      <div class="pubs">
-        {% for pub in site.data.publications.publications %}
-        {% if page.selected contains pub.id %}
-        <article class="card pub">
-          <p class="pub__meta">
-            {% if pub.venue_short != "" %}<span class="pub__venue">{{ pub.venue_short }}</span>{% endif %}
-            {% for a in pub.awards %}<span class="pub__award"><i class="fas fa-award" aria-hidden="true"></i>{{ a }}</span>{% endfor %}
-          </p>
-          <h3><a href="{{ base_path }}/publication/{{ site.data.publication_urls[pub.id] }}/">{{ pub.title }}</a></h3>
-          <p class="pub__authors">{{ pub.authors | join: ", " | replace: "Yu Hao", "<strong>Yu Hao</strong>" }}</p>
-          <p class="pub__links">
-            {% if pub.pdf %}<a href="{{ pub.pdf }}">PDF</a>{% endif %}
-            {% for g in pub.github %}<a href="{{ g[1] }}">{{ g[0] }}</a>{% endfor %}
-          </p>
-        </article>
-        {% endif %}
-        {% endfor %}
-      </div>
-      <p class="more"><a class="link" href="{{ base_path }}/publications/">All {{ site.data.publications.publications | size }} publications</a></p>
+      <section class="home__sec" id="news">
+        <h2>News</h2>
+        <div class="news">{{ content }}</div>
+      </section>
     </div>
-  </section>
-
-  <section class="home__section" id="news">
-    <div class="wrap">
-      <h2>News</h2>
-      <div class="news">
-        {{ content }}
-      </div>
-    </div>
-  </section>
+  </div>
 </main>

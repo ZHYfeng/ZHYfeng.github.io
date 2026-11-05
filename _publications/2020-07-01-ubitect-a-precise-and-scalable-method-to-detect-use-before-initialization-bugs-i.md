@@ -25,5 +25,5 @@ citation: >-
 
 [📄 PDF](http://zhyfeng.github.io/files/fse20_UBITect.pdf) | [🐙 Tool](https://github.com/seclab-ucr/UBITect) | [🔗 Publisher](https://dl.acm.org/doi/10.1145/3368089.3409686)
 
-**Awards & Recognitions:**<br>
-🏆 2023 Cyber Security CRA Capstone Poster
+**Presented at:**<br>
+🎤 2023 Cyber Security CRA Capstone Poster

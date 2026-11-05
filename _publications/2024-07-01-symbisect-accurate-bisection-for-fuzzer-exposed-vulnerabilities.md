@@ -25,5 +25,5 @@ citation: >-
 
 [📄 PDF](http://zhyfeng.github.io/files/sec24_symbisect.pdf) | [🐙 Tool](https://github.com/seclab-ucr/SyzBridge) | [🔗 Publisher](https://www.usenix.org/conference/usenixsecurity24/presentation/zhang-zheng)
 
-**Awards & Recognitions:**<br>
-🏆 Linux Security Summit 25
+**Presented at:**<br>
+🎤 Linux Security Summit 25

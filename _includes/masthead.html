@@ -9,6 +9,8 @@
             <a href="{{ base_path }}/">{{ site.title }}</a>
           </li>
           {% for link in site.data.navigation.main %}
+            {% comment %} Links tied to a collection appear only once it has content. {% endcomment %}
+            {% if link.collection and site[link.collection].size == 0 %}{% continue %}{% endif %}
             {% if link.url contains 'http' %}
               {% assign domain = '' %}
             {% else %}

@@ -153,6 +153,9 @@ def generate_pub_page(pub):
     if pub.get('awards') and not any(a == 'red' for a in pub['awards']):
         awards_str = '<br>\n'.join(f'🏆 {a}' for a in pub['awards'] if a != 'red' and a != 'red,')
         body_parts.append(f'**Awards & Recognitions:**<br>\n{awards_str}')
+    if pub.get('talks'):
+        talks_str = '<br>\n'.join(f'🎤 {t}' for t in pub['talks'])
+        body_parts.append(f'**Presented at:**<br>\n{talks_str}')
 
     body = '\n\n'.join(body_parts)
 

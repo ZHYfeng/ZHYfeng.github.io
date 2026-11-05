@@ -23,6 +23,7 @@ publications:
   links: []
   related_links: []
   awards: []
+  talks: []
 - id: syzspec-2025
   label: C17
   type: conference
@@ -45,6 +46,7 @@ publications:
   related_links: []
   awards:
   - Distinguished Paper Award
+  talks: []
 - id: scad-2025
   label: C16
   type: conference
@@ -68,6 +70,7 @@ publications:
   links: []
   related_links: []
   awards: []
+  talks: []
 - id: symbisect-2024
   label: C15
   type: conference
@@ -92,7 +95,8 @@ publications:
   links:
   - https://www.usenix.org/conference/usenixsecurity24/presentation/zhang-zheng
   related_links: []
-  awards:
+  awards: []
+  talks:
   - Linux Security Summit 25
 - id: llift-2024
   label: C14
@@ -116,6 +120,7 @@ publications:
   - https://dl.acm.org/doi/10.1145/3649828
   related_links: []
   awards: []
+  talks: []
 - id: syzgen-plusplus-2024
   label: C13
   type: conference
@@ -141,6 +146,7 @@ publications:
   - https://www.computer.org/csdl/proceedings-article/sp/2024/313000e661/1ZZvBxFudzi
   related_links: []
   awards: []
+  talks: []
 - id: syzbridge-2024
   label: C12
   type: conference
@@ -164,6 +170,7 @@ publications:
   - https://www.ndss-symposium.org/ndss-paper/syzbridge-bridging-the-gap-in-exploitability-assessment-of-linux-kernel-bugs-in-the-linux-ecosystem/
   related_links: []
   awards: []
+  talks: []
 - id: ev-2023
   label: P1
   type: preprint
@@ -187,6 +194,7 @@ publications:
   - text: Symposium on the Science of Security 24
     url: https://sos-vo.org/node/106631
   awards: []
+  talks: []
 - id: gpt-experiment-2023
   label: C11
   type: conference
@@ -208,6 +216,7 @@ publications:
   - https://dl.acm.org/doi/10.1145/3611643.3613078
   related_links: []
   awards: []
+  talks: []
 - id: syzdescribe-2023
   label: C10
   type: conference
@@ -239,6 +248,7 @@ publications:
   - text: Symposium on the Science of Security 24
     url: https://sos-vo.org/node/106811
   awards: []
+  talks: []
 - id: dependency-2022
   label: C9
   type: conference
@@ -263,6 +273,7 @@ publications:
   related_links: []
   awards:
   - Google Research Paper Rewards
+  talks: []
 - id: progressive-scrutiny-2022
   label: C8
   type: conference
@@ -289,7 +300,8 @@ publications:
   links:
   - https://www.ndss-symposium.org/ndss-paper/auto-draft-249/
   related_links: []
-  awards:
+  awards: []
+  talks:
   - 2023 Cyber Security CRA Capstone Poster
 - id: adblock-2021
   label: C7
@@ -321,6 +333,7 @@ publications:
   - https://dl.acm.org/doi/10.1145/3485832.3488008
   related_links: []
   awards: []
+  talks: []
 - id: themis-2021
   label: C6
   type: conference
@@ -347,6 +360,7 @@ publications:
   - https://dl.acm.org/doi/10.1145/3460120.3484762
   related_links: []
   awards: []
+  talks: []
 - id: suture-2021
   label: C5
   type: conference
@@ -370,6 +384,7 @@ publications:
   - https://dl.acm.org/doi/abs/10.1145/3460120.3484798
   related_links: []
   awards: []
+  talks: []
 - id: ubitect-2020
   label: C4
   type: conference
@@ -396,7 +411,8 @@ publications:
   links:
   - https://dl.acm.org/doi/10.1145/3368089.3409686
   related_links: []
-  awards:
+  awards: []
+  talks:
   - 2023 Cyber Security CRA Capstone Poster
 - id: concspectre-journal
   label: J3
@@ -423,6 +439,7 @@ publications:
   - https://ieeexplore.ieee.org/document/9761977
   related_links: []
   awards: []
+  talks: []
 - id: concspectre-2021
   label: C3
   type: conference
@@ -449,6 +466,7 @@ publications:
   related_links: []
   awards:
   - Best Paper Award
+  talks: []
 - id: taint-tse
   label: J2
   type: journal
@@ -475,6 +493,7 @@ publications:
   - text: S&P 17 Poster
     url: https://www.ieee-security.org/TC/SP2017/poster-abstracts/IEEE-SP17_Posters_paper_8.pdf
   awards: []
+  talks: []
 - id: sequential-access
   label: J1
   type: journal
@@ -498,6 +517,7 @@ publications:
   - https://ieeexplore.ieee.org/document/8357815
   related_links: []
   awards: []
+  talks: []
 - id: dataflow-2017
   label: C2
   type: conference
@@ -522,6 +542,7 @@ publications:
   - https://ieeexplore.ieee.org/document/7927973
   related_links: []
   awards: []
+  talks: []
 - id: sequential-sate
   label: C1
   type: conference
@@ -547,3 +568,4 @@ publications:
   - https://ieeexplore.ieee.org/document/7780198
   related_links: []
   awards: []
+  talks: []

@@ -12,15 +12,18 @@ main:
     url: /publications/
 
   - title: "Talks"
+    collection: talks
     url: /talks/
 
   # - title: "Teaching"
   #   url: /teaching/    
     
   - title: "Portfolio"
+    collection: portfolio
     url: /portfolio/
         
   - title: "Blog Posts"
+    collection: posts
     url: /year-archive/
     
   - title: "CV"
