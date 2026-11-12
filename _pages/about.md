@@ -8,11 +8,11 @@ redirect_from:
   - /about.html
 name_en: Yu Hao
 name_zh: 郝宇
-kicker: Security researcher, HarmonyOS System Security Team, Huawei
+kicker: Security Researcher, Systems & Kernel Security
 lead: >-
   I work on operating-system security and program analysis for C/C++ systems,
   combining fuzzing, static analysis, symbolic execution and LLM-based reasoning
-  to find and fix memory-safety bugs in real kernels: Linux, Android and HarmonyOS.
+  to find and fix memory-safety bugs in real kernels: Linux and Android.
 education: Ph.D., UC Riverside, 2024
 toc:
   - { text: research, url: "#research" }

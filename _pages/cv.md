@@ -33,15 +33,6 @@ redirect_from:
 ## Experience
 
 
-- **Security Researcher**, HarmonyOS System Security Team, Huawei, China (2024&ndash;present)<br>  Focus: HarmonyOS Security, Fuzzing, LLMs for Security, Static Analysis
-
-  - Lead the kernel fuzzing technical roadmap for HarmonyOS, targeting memory-safety vulnerabilities in the kernel and system components.
-
-  - Lead the Rust technical roadmap for HarmonyOS, eliminating memory-safety bug classes in new system components.
-
-  - Apply LLMs to security analysis (AI for Security).
-
-
 - **Research Intern**, Mentor: [Weidong Cui](https://www.microsoft.com/en-us/research/people/wdcui/), Systems Security and Privacy Research Group, Microsoft Research, USA (2023&ndash;2023)<br>  Focus: LLMs for Security / Program Analysis
 
   - Proposed E&V, an early approach that prompts LLMs to perform static analysis by executing pseudo-code and verifying the results, reducing hallucination without extra tooling.

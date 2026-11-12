@@ -22,7 +22,7 @@ person:
       url: https://github.com/ZHYfeng
 summary:
   en: >-
-    I am a security researcher on the HarmonyOS System Security Team at Huawei, where I lead memory-safety efforts for HarmonyOS. My research spans operating-system security and program analysis for C/C++ systems, combining fuzzing, static analysis, symbolic execution, and LLM-based reasoning to secure real-world kernels such as Linux, Android, and HarmonyOS. Representative work includes automated kernel fuzzing specification generation (SyzDescribe, S&P 23; SyzSpec, CCS 25 Distinguished Paper Award) and LLM-assisted static analysis (E&V; OOPSLA 24). This work has appeared in S&P, USENIX Security, CCS, NDSS, ICSE, FSE, OOPSLA, and TSE, and has produced open-source tools, invited talks, and Linux kernel bug reports and patches.
+    I am a security researcher working on operating-system security and program analysis for C/C++ systems, combining fuzzing, static analysis, symbolic execution, and LLM-based reasoning to secure real-world kernels such as Linux and Android. Representative work includes automated kernel fuzzing specification generation (SyzDescribe, S&P 23; SyzSpec, CCS 25 Distinguished Paper Award) and LLM-assisted static analysis (E&V; OOPSLA 24). This work has appeared in S&P, USENIX Security, CCS, NDSS, ICSE, FSE, OOPSLA, and TSE, and has produced open-source tools, invited talks, and Linux kernel bug reports and patches.
   zh: >-
     我是华为鸿蒙系统安全组的系统安全研究员，负责鸿蒙操作系统的内存安全工作。我的研究聚焦操作系统安全与C/C++程序分析，结合Fuzzing、静态分析、符号执行和大语言模型推理，保障Linux、Android、鸿蒙等真实内核的安全。代表性工作包括内核Fuzzing规格自动生成（SyzDescribe，S&P 23；SyzSpec，CCS 25杰出论文奖）和LLM辅助静态分析（E&V；OOPSLA 24）。研究成果发表于S&P、USENIX Security、CCS、NDSS、ICSE、FSE、OOPSLA和TSE等会议/期刊，并产出多个开源工具、受邀报告以及Linux内核漏洞报告和补丁。
 sections:
@@ -102,35 +102,27 @@ sections:
   experience:
     entries:
       - id: huawei
+        visible_in: [zh]
         start: '2024-10'
         end: null
         role_notes:
           - text: 获得华为“天才少年”录用
             visible_in: [zh]
         role:
-          en: Security Researcher
           zh: 系统安全研究员
         organization:
-          en: HarmonyOS System Security Team, Huawei, China
-          zh: 鸿蒙系统安全组，华为，中国
+          zh: 鸿蒙系统安全组，华为
         keywords:
           - text:
-              en: HarmonyOS Security, Fuzzing, LLMs for Security, Static Analysis
               zh: 鸿蒙系统安全、Fuzzing、LLM辅助安全分析、静态分析
         highlights:
           - text:
-              en: >-
-                Lead the kernel fuzzing technical roadmap for HarmonyOS, targeting memory-safety vulnerabilities in the kernel and system components.
               zh: >-
                 负责鸿蒙内核Fuzzing技术路线，面向内核及系统组件的内存安全漏洞挖掘。
           - text:
-              en: >-
-                Lead the Rust technical roadmap for HarmonyOS, eliminating memory-safety bug classes in new system components.
               zh: >-
                 负责鸿蒙操作系统Rust技术路线，在新系统组件中从根源上消除内存安全类漏洞。
           - text:
-              en: >-
-                Apply LLMs to security analysis (AI for Security).
               zh: >-
                 推动AI for Security，将大语言模型应用于安全分析。
       - id: microsoft-intern
